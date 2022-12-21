@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:00:15 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/20 16:32:51 by mvautrot         ###   ########.fr       */
+/*   Updated: 2022/12/21 08:22:06 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ int	main(void)
 {
 	void	*mlx;
 	void	*mlx_win;
+	void	*mlx_color;
 
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, 1000, 1000, "UNE FENETRE");
+	
 	mlx_loop(mlx);
 }
 
