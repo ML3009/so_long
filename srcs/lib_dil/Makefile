@@ -54,6 +54,7 @@ SRC=ft_isalpha.c \
 	ft_hexa_max.c\
 	ft_putaddr.c\
 	ft_printf.c\
+	get_next_line.c\
 
 OBJ=$(SRC:.c=.o)
 
