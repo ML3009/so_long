@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mainGNLv2.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:11:13 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/07 08:58:02 by mvautrot         ###   ########.fr       */
+/*   Updated: 2022/12/21 15:10:13 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/get_next_line.h"
+# include "../../includes/libft.h"
 
-int main(void)
+int main(int ac, char **av)
 {
 	int		fd;
 	char	*line;
 
-	fd = open("map.ber", O_RDONLY);
-    	//fd = 1;
+    if (ac != 2)
+        return (ft_printf("cest nul"));
+    if (ft_check_name(av[1]) != 1)
+        return(0);
+	fd = open(av[1], O_RDONLY);
+    //fd = 1;
 	while ((line = get_next_line(fd)))
     {
         printf("%s", line);

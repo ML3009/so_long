@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:25:31 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/21 14:31:13 by mvautrot         ###   ########.fr       */
+/*   Updated: 2022/12/21 15:03:42 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,7 @@ int		ft_putaddr(uintptr_t nb);
 int		ft_hexa_ptr(unsigned long long nb);
 size_t	ft_strlen( char *str);
 
+/*test*/
+int ft_check_name(char *fd);
 
 #endif

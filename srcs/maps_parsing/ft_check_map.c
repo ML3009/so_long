@@ -10,21 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/get_next_line.h"
-# include "../../includes/ft_printf.h"
 # include "../../includes/libft.h"
 
-int ft_check_name(char *file)
+int ft_check_name(char *fd)
 {
     int i;
 
     i = 0;
-    if (!file)
-        return (ft_printf("error with the map"));
-    while (file[i])
+    if (!fd)
+        return (ft_printf("%s\n","error with the map"));
+    while (fd[i])
         i++;
     i--;
-    if (file[i] != 'r' || file[i - 1] != 'e' || file[i - 2] != 'b' || file[i - 3] != '.' || ft_strlen(file) < 4)
-    	return (ft_printf("error with the map name"));
+    if (fd[i] != 'r' || fd[i - 1] != 'e' || fd[i - 2] != 'b' || fd[i - 3] != '.' || ft_strlen(fd) < 5)
+    	return (ft_printf("%s\n","error with the map name"));
     return (1);
 }

@@ -15,12 +15,12 @@
 
 # include "mlx_linux/mlx.h"
 # include "printf.h"
-# include "get_next_line.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <fcnt1.h>
 # include <stdio.h>
  
+ int	ft_check_name(char *fd);
 
 
 
