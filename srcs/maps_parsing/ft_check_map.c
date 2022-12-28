@@ -10,76 +10,127 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/libft.h"
 # include "../../includes/so_long.h"
 
-int ft_check_name(char *fd)
+int ft_check_size (char **str)
 {
+    int len;
     int i;
 
     i = 0;
-    if (!fd)
-        return (ft_putstr_fd("ERROR\nWrong format\n", 2));
-    while (fd[i])
-        i++;
-    i--;
-    if (fd[i] != 'r' || fd[i - 1] != 'e' || fd[i - 2] != 'b' || fd[i - 3] != '.' || ft_strlen(fd) < 5)
-    	return (ft_putstr_fd("ERROR\nWrong format\n", 2));
-    return (1);
-}
-
-
-int ft_check_parsing(char *map_str)
-{
-    int i;
-    
-    i = 0;
-    while (map_str[i])
+    len = ft_strlen (str[0]);
+    while (str[i])
     {
-       if (map_str[i] != '1' && map_str[i] != '0' && map_str[i] != 'C'
-            && map_str[i] != 'E' && map_str[i] != 'P')
-        {
-            free (map_str);
-            ft_putstr_fd("ERROR\nCaractere is not OK\n", 2);
+        if (len != ft_strlen(str[i]))
             return (0);
+        i++;
+    }
+    return (1);
+}
+
+int ft_check_wall (char **str, char *map)
+{
+    int i;
+    int j;
+    int i_max;
+    int j_max;
+
+    i_max = ft_width(&map) - 1;
+    j_max = ft_lenght(&map) - 1;
+    i = 0;
+    while (str[i])
+    {
+        j = 0;
+        while (j < ft_strlen(str[i] - 1))
+        {
+            if (str[0][j] != '1' || str[i_max][j] != '1')
+                return (0);
+            else if (str[i][j_max]!= '1' || str[i][0] != '1')
+                return (0);
+            j++;
         }
         i++;
     }
     return (1);
 }
 
-void    ft_count_occurence(int *count_c, int *count_e, int *count_p, char c)
+
+int ft_check_parsing(char **str)
 {
-    if (c == 'C')
-        *count_c++;
-    if (c == 'E')
-        *count_e++;
-    if (c == 'P')
-        *count_p++;
+    int i;
+    int j;
+    int size;
+
+    size = ft_strlen(str[0]);
+    i = 0;
+    while (str[i])
+    {
+        j = 0;
+        while (j < size - 1)
+        {
+            if (str[i][j] != '1' && str[i][j] != '0' && str[i][j] != 'C'
+                && str[i][j] != 'E' && str[i][j] != 'P')
+                return (0);
+            j++;
+        }
+        i++;
+    }
+    return (1);
 }
 
-int ft_check_occurence(char **map)
+int ft_check_occurence (char **str)
 {
-    t_map va; 
-    int count_c;
+    int i;
+    int j;
+    t_map map;
 
-    count_c = 0;
-    ft_map_init(&va);
-    while (map[va.i])
+    ft_map_init(&map);
+    i = 0;
+    while (str[i])
     {
-        while (map[va.i][va.j])
+        j = 0;
+        while (str[i][j])
         {
-            ft_count_occurence(&count_c, &va.x, &va.y, map[va.i][va.j]);
-            va.j++;
+            if (str[i][j] == 'P')
+                map.player++;
+            if (str[i][j] == 'E')
+                map.exit++;
+            if (str[i][j] == 'C')
+                map.collectible++;
+            j++;
         }
-        va.j = 0;
-        va.i ++;
+        i++;
     }
-    if (va.x != 1 || va.y != 1 || c == 0)
+    if (map.player !=1 || map.exit != 1 || map.collectible == 0)  
+        return(0);
+    return (1);
+}
+
+int ft_check_map (char **str, char *map)
+{
+    if (ft_check_size(str) == 0)
     {
-        ft_destroy_map(map);
-        ft_putstr_fd("ERROR\nProblem with CEP\n", 2);
+        ft_putstr_fd("ERROR\nWrong map size\n", 2);
+        ft_free_tab(str);
         return(0);
     }
-    return (1);
+    if (ft_check_wall(str, map) == 0)
+    {
+        ft_putstr_fd("ERROR\nWrong wall placement\n", 2);
+        ft_free_tab(str);
+        return(0);
+    }
+    if (ft_check_parsing(str) == 0)
+    {
+        ft_putstr_fd("ERROR\nUnknow character\n", 2);
+        ft_free_tab(str);
+        return(0);
+    }
+    if (ft_check_occurence(str) == 0)
+    {
+        ft_putstr_fd("ERROR\nProblem with CEP\n", 2);
+        ft_free_tab(str);
+        return(0);
+    }
+    return(1);
 }

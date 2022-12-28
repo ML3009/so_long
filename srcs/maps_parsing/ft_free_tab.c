@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_destroy_error.c                                 :+:      :+:    :+:   */
+/*   ft_free_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/27 09:37:51 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/27 09:39:28 by mvautrot         ###   ########.fr       */
+/*   Created: 2022/12/28 10:24:17 by mvautrot          #+#    #+#             */
+/*   Updated: 2022/12/28 10:32:26 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    ft_destroy_map(char **map)
+# include "../../includes/libft.h"
+# include "../../includes/so_long.h"
+
+void    ft_free_tab(char **str)
 {
     int i;
 
     i = 0;
-    while (map[i])
-        i++;
-    while (i >= 0)
+    while (str[i])
     {
-        free(map[i])
-        i--;
+        free(str[i]);
+        i++;
     }
-    free(map);
+    free(str);
 }
