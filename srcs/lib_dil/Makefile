@@ -6,7 +6,7 @@
 #    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/12 16:27:10 by mvautrot          #+#    #+#              #
-#    Updated: 2022/11/24 11:24:00 by mvautrot         ###   ########.fr        #
+#    Updated: 2022/12/27 10:41:01 by mvautrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,11 @@ SRC=ft_isalpha.c \
 	ft_putaddr.c\
 	ft_printf.c\
 	get_next_line.c\
+	ft_putchar_fd.c\
+	ft_putendl_fd.c\
+	ft_putnbr_fd.c\
+	ft_putstr_fd.c\
+	ft_strcmp.c\
 
 OBJ=$(SRC:.c=.o)
 

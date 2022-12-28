@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_destroy_error.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 14:30:05 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/27 10:15:37 by mvautrot         ###   ########.fr       */
+/*   Created: 2022/12/27 09:37:51 by mvautrot          #+#    #+#             */
+/*   Updated: 2022/12/27 09:39:28 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
-
-int	ft_atoi( char *nptr)
+void    ft_destroy_map(char **map)
 {
-	int	res;
-	int	sign;
-	int	i;
+    int i;
 
-	res = 0;
-	sign = 1;
-	i = 0;
-	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	if (nptr[i] == '+')
-		i++;
-	else if (nptr[i] == '-')
-	{
-		sign *= -1;
-		i++;
-	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		res = res * 10 + nptr[i] - '0';
-	i++;
-	}
-	return (res * sign);
+    i = 0;
+    while (map[i])
+        i++;
+    while (i >= 0)
+    {
+        free(map[i])
+        i--;
+    }
+    free(map);
 }

@@ -19,41 +19,67 @@ int ft_check_name(char *fd)
 
     i = 0;
     if (!fd)
-        return (ft_printf("%s\n","error with the map"));
+        return (ft_putstr_fd("ERROR\nWrong format\n", 2));
     while (fd[i])
         i++;
     i--;
     if (fd[i] != 'r' || fd[i - 1] != 'e' || fd[i - 2] != 'b' || fd[i - 3] != '.' || ft_strlen(fd) < 5)
-    	return (ft_printf("%s\n","error with the map name"));
+    	return (ft_putstr_fd("ERROR\nWrong format\n", 2));
     return (1);
 }
 
 
-int ft_check_cep(char **str)
+int ft_check_parsing(char *map_str)
 {
     int i;
-    int j;
-    t_map map;
-
-    map_init(&map);
+    
     i = 0;
-    while (str[i])
+    while (map_str[i])
     {
-        j = 0;
-        while (str[i][j])
+       if (map_str[i] != '1' && map_str[i] != '0' && map_str[i] != 'C'
+            && map_str[i] != 'E' && map_str[i] != 'P')
         {
-            if (str[i][j] == 'P')
-                map.player++;
-            if (str[i][j] == 'E')
-                map.exit++;
-            if (str[i][j] == 'C')
-                map.collectible++;
-            j++;
+            free (map_str);
+            ft_putstr_fd("ERROR\nCaractere is not OK\n", 2);
+            return (0);
         }
         i++;
     }
-    if (map.player == 1 && map.exit == 1 && map.collectible >= 1)
-        return (1);
-    else
-        return (ft_printf("miss you"));
+    return (1);
+}
+
+void    ft_count_occurence(int *count_c, int *count_e, int *count_p, char c)
+{
+    if (c == 'C')
+        *count_c++;
+    if (c == 'E')
+        *count_e++;
+    if (c == 'P')
+        *count_p++;
+}
+
+int ft_check_occurence(char **map)
+{
+    t_map va; 
+    int count_c;
+
+    count_c = 0;
+    ft_map_init(&va);
+    while (map[va.i])
+    {
+        while (map[va.i][va.j])
+        {
+            ft_count_occurence(&count_c, &va.x, &va.y, map[va.i][va.j]);
+            va.j++;
+        }
+        va.j = 0;
+        va.i ++;
+    }
+    if (va.x != 1 || va.y != 1 || c == 0)
+    {
+        ft_destroy_map(map);
+        ft_putstr_fd("ERROR\nProblem with CEP\n", 2);
+        return(0);
+    }
+    return (1);
 }

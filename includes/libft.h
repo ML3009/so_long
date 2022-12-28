@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 11:25:31 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/21 16:26:06 by mvautrot         ###   ########.fr       */
+/*   Updated: 2022/12/27 10:40:49 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst,  void *src, size_t n);
@@ -51,6 +55,7 @@ int		ft_tolower(int c);
 char	*ft_strchr( char *s, int c);
 char	*ft_strrchr( char *s, int c);
 int		ft_strncmp( char *s1,  char *s2, size_t n);
+int		ft_strcmp( char *s1,  char *s2);
 void	*ft_memchr( void *s, int c, size_t n);
 int		ft_memcmp( void *s1,  void *s2, size_t n);
 char	*ft_strnstr( char *big,  char *little, size_t len);

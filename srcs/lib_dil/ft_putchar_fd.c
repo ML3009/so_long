@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 16:54:58 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/21 17:11:09 by mvautrot         ###   ########.fr       */
+/*   Created: 2022/11/16 08:49:07 by mvautrot          #+#    #+#             */
+/*   Updated: 2022/11/17 16:24:00 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/so_long.h"
+#include "../../includes/libft.h"
 
-void    map_init(t_map *map)
+void	ft_putchar_fd(char c, int fd)
 {
-    map->player = 0;
-    map->collectible = 0;
-    map->exit = 0;
+	write(fd, &c, 1);
 }
