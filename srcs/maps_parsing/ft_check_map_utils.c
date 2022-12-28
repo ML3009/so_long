@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:54:58 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/28 11:40:13 by mvautrot         ###   ########.fr       */
+/*   Updated: 2022/12/28 14:20:21 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ void    ft_map_init(t_map *map)
     map->exit = 0;
 }
 
-int ft_lenght(char **str)
+int ft_line(char *str)
 {
     int fd;
     char *line;
     int len;
 
-    fd = open(*str, O_RDONLY);
+    fd = open(str, O_RDONLY);
     line = get_next_line(fd);
     if (!line)
         return(0);
@@ -58,7 +58,7 @@ int ft_lenght(char **str)
     return (len);
 }
 
-int ft_width (char **str)
+int ft_column (char *str)
 {
 
     int fd;
@@ -66,7 +66,7 @@ int ft_width (char **str)
     int i;
 
     i = 0;
-    fd = open(*str, O_RDONLY);
+    fd = open(str, O_RDONLY);
     line = get_next_line(fd);
     if(!line)
         return(0);

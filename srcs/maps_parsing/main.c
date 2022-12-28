@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:11:13 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/28 11:35:08 by mvautrot         ###   ########.fr       */
+/*   Updated: 2022/12/28 14:18:04 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,27 @@ int main(int ac, char **av)
     int i;
     int size;
 	char	*line;
-    char    **map;
+    char    **str;
 
     if (ac != 2)
         return (ft_printf(" too many arguments"));
     if (ft_check_ber(av[1]) != 1)
         return(ft_printf("Format is not OK"));
-    size = ft_width(&av[1]);
+    size = ft_column(av[1]);
     i = 0;
     fd = open (av[1], O_RDONLY);
-    map = malloc(sizeof(char *) * (size + 1));
-    if (!map)
+    str = malloc(sizeof(char *) * (size + 1));
+    if (!str)
         return (0);
     line = get_next_line(fd);
     while ((line))
     {
-        map[i] = line;
-        ft_check_map(map, av[1]);
+        str[i] = line;
         line = get_next_line(fd);
         i++;
     }
-    map[i] = NULL;
+    str[i] = NULL;
+    ft_check_map(str, av[1]);
     free(line);
     close(fd);
    // return(map);
@@ -55,6 +55,6 @@ int main(int ac, char **av)
 	while ((line = get_next_line(fd)))
     {
         printf("%s", line);
-        free(line); 
+        free(line);
     }*/
 

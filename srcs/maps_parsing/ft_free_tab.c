@@ -6,22 +6,22 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 10:24:17 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/28 10:32:26 by mvautrot         ###   ########.fr       */
+/*   Updated: 2022/12/28 11:53:25 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../../includes/libft.h"
 # include "../../includes/so_long.h"
 
-void    ft_free_tab(char **str)
+void    ft_free_tab(char **tab)
 {
     int i;
 
     i = 0;
-    while (str[i])
+    while (tab[i])
     {
-        free(str[i]);
+        free(tab[i]);
         i++;
     }
-    free(str);
+    free(tab);
 }
