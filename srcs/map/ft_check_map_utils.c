@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:54:58 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/28 14:20:21 by mvautrot         ###   ########.fr       */
+/*   Updated: 2022/12/28 15:36:49 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,3 +81,15 @@ int ft_column (char *str)
     return(i);
 }
 
+void    ft_free_tab(char **tab)
+{
+    int i;
+
+    i = 0;
+    while (tab[i])
+    {
+        free(tab[i]);
+        i++;
+    }
+    free(tab);
+}

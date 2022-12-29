@@ -54,7 +54,6 @@ int ft_check_wall (char **str, char *map)
 	return (1);
 }
 
-
 int	ft_check_parsing(char **str)
 {
 	int i;

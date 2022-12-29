@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:11:13 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/28 14:18:04 by mvautrot         ###   ########.fr       */
+/*   Updated: 2022/12/28 15:40:04 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ int main(int ac, char **av)
     }
     str[i] = NULL;
     ft_check_map(str, av[1]);
+    ft_aff_map(str, av[1]);
     free(line);
     close(fd);
    // return(map);
         //ft_check_map
-    }
+}
     /*if (ac != 2)
         return (ft_printf("cest nul"));
     if (ft_check_name(av[1]) != 1)

@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_aff_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 13:07:12 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/21 14:27:05 by mvautrot         ###   ########.fr       */
+/*   Created: 2022/12/28 15:38:29 by mvautrot          #+#    #+#             */
+/*   Updated: 2022/12/28 15:45:48 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
-
-size_t	ft_strlen(char *str)
+void	ft_aff_map(char **str, char *map)
 {
-	size_t	i;
-	
-	if (!str)
-		return (0);
+	void	*mlx;
+	void	*mlx_win;
+	void	*mlx_color;
 
-	i = 0;
-	while (str && str[i])
-		i++;
-	return (i);
+	mlx = mlx_init();
+	mlx_win = mlx_new_window(mlx, 1000, 1000, "UNE FENETRE");
+
+	mlx_loop(mlx);
 }
+

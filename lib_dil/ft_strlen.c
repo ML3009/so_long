@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_tab.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/28 10:24:17 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/28 11:53:25 by mvautrot         ###   ########.fr       */
+/*   Created: 2022/12/21 13:07:12 by mvautrot          #+#    #+#             */
+/*   Updated: 2022/12/28 10:34:08 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/libft.h"
-# include "../../includes/so_long.h"
+#include "../../includes/libft.h"
 
-void    ft_free_tab(char **tab)
+int	ft_strlen(char *str)
 {
-    int i;
+	int	i;
+	
+	if (!str)
+		return (0);
 
-    i = 0;
-    while (tab[i])
-    {
-        free(tab[i]);
-        i++;
-    }
-    free(tab);
+	i = 0;
+	while (str && str[i])
+		i++;
+	return (i);
 }
