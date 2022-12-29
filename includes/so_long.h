@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 09:13:08 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/28 15:27:08 by mvautrot         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:38:24 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,22 @@ typedef struct s_map
     int collectible;
     int exit;
  } t_map;
+
+typedef struct s_vars
+{
+   void  *mlx;
+   void  *win;
+}  t_vars;
+
+typedef struct s_data {
+	void	*img;
+	char	*relative_paths;
+   void  *perso;
+   void  *collec;
+   void  *escape;
+	int	img_widht;
+	int	img_height;
+}	t_data;
 
 int   ft_check_ber(char *fd);
 void   ft_map_init(t_map *map);

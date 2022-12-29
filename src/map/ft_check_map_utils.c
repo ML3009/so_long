@@ -12,7 +12,6 @@
 
 # include "../../includes/so_long.h"
 
-
 int ft_check_ber(char *fd)
 {
     int i;

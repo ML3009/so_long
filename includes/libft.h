@@ -99,7 +99,7 @@ int		ft_hexa_min(unsigned int nb);
 int		ft_hexa_max(unsigned int nb);
 int		ft_putaddr(uintptr_t nb);
 int		ft_hexa_ptr(unsigned long long nb);
-int	ft_strlen( char *str);
+int		ft_strlen( char *str);
 
 
 #endif
