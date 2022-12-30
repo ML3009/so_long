@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
+#    By: ml <ml@student.42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 11:09:50 by mvautrot          #+#    #+#              #
-#    Updated: 2022/12/29 10:03:13 by mvautrot         ###   ########.fr        #
+#    Updated: 2022/12/30 11:12:56 by ml               ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,10 @@ CC=gcc
 
 CFLAGS= -g3 -Wall -Wextra -Werror
 
-SRC=src/map/ft_check_map.c\
-	src/map/ft_check_map_utils.c\
+SRC=src/ft_check_map.c\
+	src/ft_check_map_utils.c\
+	src/ft_read_map.c\
+	src/ft_read_map_utils.c\
 
 OBJ=$(SRC:.c=.o)
 

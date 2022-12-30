@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:00:15 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/29 09:43:25 by mvautrot         ###   ########.fr       */
+/*   Updated: 2022/12/30 08:50:34 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 
 typedef struct s_data {
 	void	*img;
-	char	*relative_paths; 
-	int	img_widht;
-	int	img_height;
 	char	*addr;
+	//char	*relative_paths; 
+	//int	img_widht;
+	//int	img_height;
 	int	bits_per_pixel;
 	int	line_lenght;
 	int	endian;
@@ -66,9 +66,9 @@ int	main(void)
 {
 	//void	*mlx;
 	//void	*mlx_win;
-	//int	x;
-	//int	y;
-	//int color;
+	int	x;
+	int	y;
+	int color;
 
 	//t_data	img;
 	t_data	img;
@@ -78,13 +78,13 @@ int	main(void)
 	//mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
 	vars.mlx = mlx_init();
 	vars.win = mlx_new_window(vars.mlx, 1920, 1080, "Hello world!");
-	//img.img = mlx_new_image(vars.mlx, 1920, 1080);
-	img.addr = mlx_get_data_addr(img.relative_paths, &img.bits_per_pixel, &img.line_lenght, &img.endian);
-	img.relative_paths = "./dino.xpm";
-	img.img = mlx_xpm_file_to_image(vars.mlx, img.relative_paths, &img.img_widht, &img.img_height);
+	img.img = mlx_new_image(vars.mlx, 1920, 1080);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_lenght, &img.endian);
+	//img.relative_paths = "./dino.xpm";
+	//img.img = mlx_xpm_file_to_image(vars.mlx, img.r, &img.img_widht, &img.img_height);
 
 
-	/*x = 0;
+	x = 0;
 	y = 0;
 	color = 0x0033FF33;
 	while(x < 1000 && y < 1000)
@@ -110,10 +110,10 @@ int	main(void)
 	{
 		my_mlx_pixel_put(&img, x, y, color);
 		y++;
-	}*/
+	}
 
 
-	mlx_put_image_to_window(vars.mlx, vars.win, img.relative_paths, 0, 0);
+	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
 	mlx_key_hook(vars.win, key_hook, &vars);
 	mlx_mouse_hook(vars.win, mouse_hook, &vars);
 	mlx_hook(vars.win, 2, 1L<<0, close, &vars);

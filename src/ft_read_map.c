@@ -1,0 +1,60 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_read_map.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/30 09:54:23 by ml                #+#    #+#             */
+/*   Updated: 2022/12/30 10:46:32 by ml               ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+# include "../includes/so_long.h"
+
+void    ft_put_map(t_vars var)
+{
+    int i;
+    int j;
+
+    i = 0;
+    while(var.map[i])
+    {
+        j = 0;
+        while(var.map[i][j])
+        {
+            if(var.map[i][j]== 'P')
+                ft_put_player(var, j, i);
+            j++;
+        }
+        i++;
+    }
+}
+
+char    **ft_read_map(char *str)
+{
+    char    **map;
+    char    *ret;
+    int i;
+    int fd;
+    int size;
+
+    size = ft_column(str);
+    i = 0;
+    fd = open(str, O_RDONLY);
+    map = malloc(sizeof(char *) * (size + 1));
+    if(!map)
+        return (NULL);
+    ret = get_next_line(fd);
+    while (ret)
+    {
+        map[i] = ret;
+        ret = get_next_line(fd);
+        i++;
+    }
+    map[i] = NULL;
+    free (ret);
+    close(fd);
+    return(map);
+
+}

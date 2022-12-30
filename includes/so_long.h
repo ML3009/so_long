@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 09:13:08 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/29 14:38:24 by mvautrot         ###   ########.fr       */
+/*   Updated: 2022/12/30 10:36:41 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,37 @@ typedef struct s_vars
 {
    void  *mlx;
    void  *win;
+   char  **map;
 }  t_vars;
 
 typedef struct s_data {
 	void	*img;
-	char	*relative_paths;
-   void  *perso;
-   void  *collec;
-   void  *escape;
-	int	img_widht;
-	int	img_height;
+	char	*addr;
+   int   bits_per_pixel;
+   int   line_length;
+   int   endian;
 }	t_data;
 
+//CHECK MAP
+
 int   ft_check_ber(char *fd);
-void   ft_map_init(t_map *map);
-int   ft_line(char *str);
-int   ft_column(char *str);
 int   ft_check_size(char **str);
 int   ft_check_wall(char **str, char *map);
 int   ft_check_parsing(char **str);
 int   ft_check_occurence (char **str);
 int   ft_check_map(char **str, char *map);
+
+//INITIALIZE READ AND PUT MAP
+
+void   ft_map_init(t_map *map);
+char  **ft_read_map(char *str);
+void  ft_put_map(t_vars var);
+void  ft_put_player(t_vars, int x, int y);
+
+//UTILS
+
+int   ft_line(char *str);
+int   ft_column(char *str);
 void  ft_free_tab(char **tab);
 
 #endif
