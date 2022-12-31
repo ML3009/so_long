@@ -6,27 +6,30 @@
 /*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:11:13 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/30 10:46:26 by ml               ###   ########.fr       */
+/*   Updated: 2022/12/31 13:24:44 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/so_long.h"
+
 
 int main(int ac, char **av)
 {
     t_vars  var;
     int heigth;
     
-    heigth = ft_column(av[1]) * 64;
+    heigth = ft_column(av[1]) * 50;
     if (ac != 2)
         return(0);
     else
     {
+        var.moves = 0;
         var.mlx = mlx_init();
         var.map = ft_read_map(av[1]);
         ft_check_map(var.map, av[1]);
-        var.win = mlx_new_window(var.mlx, ft_line(av[1]) * 64, heigth, "Hello");
+        var.win = mlx_new_window(var.mlx, ft_line(av[1]) * 50, heigth, "Hello");
         ft_put_map(var);
+        //mlx_hook(var.win, 17, 0L, close_all, &var);
         mlx_loop(var.mlx);
     }
     

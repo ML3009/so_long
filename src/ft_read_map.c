@@ -6,30 +6,12 @@
 /*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:54:23 by ml                #+#    #+#             */
-/*   Updated: 2022/12/30 10:46:32 by ml               ###   ########.fr       */
+/*   Updated: 2022/12/31 13:18:50 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/so_long.h"
 
-void    ft_put_map(t_vars var)
-{
-    int i;
-    int j;
-
-    i = 0;
-    while(var.map[i])
-    {
-        j = 0;
-        while(var.map[i][j])
-        {
-            if(var.map[i][j]== 'P')
-                ft_put_player(var, j, i);
-            j++;
-        }
-        i++;
-    }
-}
 
 char    **ft_read_map(char *str)
 {
@@ -57,4 +39,32 @@ char    **ft_read_map(char *str)
     close(fd);
     return(map);
 
+}
+
+
+void    ft_put_map(t_vars var)
+{
+    int i;
+    int j;
+
+    i = 0;
+    while(var.map[i])
+    {
+        j = 0;
+        while(var.map[i][j])
+        {
+            if(var.map[i][j] == 'P')
+                ft_put_player(var, j, i);
+            else if (var.map[i][j] == 'C')
+                ft_put_collectible(var, j, i);
+            else if (var.map[i][j] == '0')
+                ft_put_background(var, j, i);
+            else if (var.map[i][j] == '1')
+                ft_put_wall(var, j, i);
+            else if (var.map[i][j] == 'E')
+                ft_put_exit(var, j, i);
+            j++;
+        }
+        i++;
+    }
 }
