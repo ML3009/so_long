@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 09:13:08 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/31 13:25:27 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/02 12:03:04 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "../mlx_linux/mlx.h"
-# include "libft.h"
+# include "../lib_dil/libft.h"
 
 typedef struct s_map
  {

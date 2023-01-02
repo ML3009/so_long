@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_read_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:54:23 by ml                #+#    #+#             */
-/*   Updated: 2022/12/31 13:18:50 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/02 15:44:25 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,15 @@ void    ft_put_map(t_vars var)
         while(var.map[i][j])
         {
             if(var.map[i][j] == 'P')
-                ft_put_player(var, j, i);
+                 ft_put_player(var, j, i);
             else if (var.map[i][j] == 'C')
-                ft_put_collectible(var, j, i);
+                 ft_put_collectible(var, j, i);
             else if (var.map[i][j] == '0')
-                ft_put_background(var, j, i);
+                 ft_put_background(var, j, i);
             else if (var.map[i][j] == '1')
-                ft_put_wall(var, j, i);
+                 ft_put_wall(var, j, i);
             else if (var.map[i][j] == 'E')
-                ft_put_exit(var, j, i);
+                   ft_put_exit(var, j, i);
             j++;
         }
         i++;

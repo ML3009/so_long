@@ -6,13 +6,13 @@
 #    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/12 16:27:10 by mvautrot          #+#    #+#              #
-#    Updated: 2022/12/27 10:41:01 by mvautrot         ###   ########.fr        #
+#    Updated: 2023/01/02 12:06:45 by mvautrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=libft.a
 
-CC=gcc
+CC=cc
 CFLAGS=-Wall -Wextra -Werror
 
 SRC=ft_isalpha.c \
@@ -75,8 +75,8 @@ BONUS= ft_lstnew.c\
 
 OBJBONUS =$(BONUS:.c=.o)
 
-%.o : %.c 
-	$(CC) $(CFLAGS) -o $@ -c $< 
+%.o : %.c
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME) : $(OBJ)
 	ar rc $(NAME) $(OBJ)
@@ -84,12 +84,12 @@ $(NAME) : $(OBJ)
 all : $(NAME)
 
 clean :
-	rm -rf *.o  
+	rm -rf *.o
 
 fclean : clean
 	rm -rf $(NAME)
 
-re : fclean $(NAME) 
+re : fclean $(NAME)
 
 bonus : $(OBJ) $(OBJBONUS)
 	ar rc $(NAME) $(OBJ) $(OBJBONUS)

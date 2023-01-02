@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:11:13 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/31 13:24:44 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/02 15:40:39 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@
 int main(int ac, char **av)
 {
     t_vars  var;
-    int heigth;
-    
-    heigth = ft_column(av[1]) * 50;
+    int height;
+
+    height = ft_column(av[1]) * 200;
+
     if (ac != 2)
         return(0);
     else
     {
-        var.moves = 0;
         var.mlx = mlx_init();
         var.map = ft_read_map(av[1]);
         ft_check_map(var.map, av[1]);
-        var.win = mlx_new_window(var.mlx, ft_line(av[1]) * 50, heigth, "Hello");
+        var.win = mlx_new_window(var.mlx, (ft_line(av[1]) *64), height, "Hello");
         ft_put_map(var);
         //mlx_hook(var.win, 17, 0L, close_all, &var);
         mlx_loop(var.mlx);
     }
-    
+
 }
 
 

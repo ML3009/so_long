@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:00:15 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/30 08:50:34 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/02 10:44:05 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef struct s_data {
 	void	*img;
 	char	*addr;
-	//char	*relative_paths; 
+	//char	*relative_paths;
 	//int	img_widht;
 	//int	img_height;
 	int	bits_per_pixel;

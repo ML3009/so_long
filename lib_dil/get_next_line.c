@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 11:10:04 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/30 10:44:27 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/02 12:11:03 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 
 char	*get_next_line(int fd)
@@ -45,10 +45,10 @@ char	*ft_read_line(int fd, char *line, char *buf)
 			return (NULL);
 	}
 	if (ft_strchr(line, '\n'))
-	{	
+	{
 		buf = ft_getlast_line(line, buf);
 		line = ft_check_line(line);
-	}	
+	}
 	return (line);
 }
 

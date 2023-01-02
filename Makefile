@@ -3,51 +3,60 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ml <ml@student.42.fr>                      +#+  +:+       +#+         #
+#    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 11:09:50 by mvautrot          #+#    #+#              #
-#    Updated: 2022/12/30 11:12:56 by ml               ###   ########.fr        #
+#    Updated: 2023/01/02 12:26:07 by mvautrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=so_long.a
+NAME=so_long
 
-CC=gcc
+CC=cc
 
-CFLAGS= -g3 -Wall -Wextra -Werror
+CFLAGS= -Wall -Wextra -Werror -g3
 
-SRC=src/ft_check_map.c\
-	src/ft_check_map_utils.c\
-	src/ft_read_map.c\
-	src/ft_read_map_utils.c\
+PATH_SRC = src
+SRC= $(PATH_SRC)/ft_check_map.c\
+	$(PATH_SRC)/ft_check_map_utils.c\
+	$(PATH_SRC)/ft_read_map.c\
+	$(PATH_SRC)/ft_read_map_utils.c\
+	$(PATH_SRC)/main.c
+
+PATH_MLX = mlx_linux
+MLX = $(PATH_MLX)/libmlx_Linux.a -I $(PATH_MLX) -L $(PATH_MLX) -lXext -lX11 -lm -lmlx
+
+PATH_LIB = lib_dil
+LIB = $(PATH_LIB)/libft.a
 
 OBJ=$(SRC:.c=.o)
 
-MLX = -Lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+all: $(NAME)
 
-all : $(NAME)
+$(NAME) : $(OBJ) $(MLX) $(LIB)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(MLX) $(LIB)
 
-$(NAME) : $(OBJ) mlx_linux/libmlx_Linux.a lib_dil/libft.a
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(MLX)
+# %.o : %.c
+.c.o:
+	$(CC) $(CFLAGS) -I /usr/include -c $< -o $@
 
-%.o : %.c
-	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -c $< -o $@
+$(MLX):
+	make -C $(PATH_MLX)
 
-mlx_linux/libmlx_Linux.a:
-	make -C mlx_linux
+$(LIB):
+	make -C $(PATH_LIB)
 
-lib_dil/libft.a:
-	make -C lib_dil
+clean:
+	make -C $(PATH_MLX) clean
+	make -C $(PATH_LIB) clean
+	rm -f $(OBJ)
 
-clean :
-	make -C mlx_linux clean
-	make -C lib_dil clean
-	rm -rf *.o
 
-fclean : clean
-	make -C lib_dil clean
-	rm -rf $(NAME)
+fclean: clean
+	make -C $(PATH_LIB) fclean
+	make -C $(PATH_MLX) clean
+	rm -f $(NAME)
 
-re : fclean $(NAME)
+re: fclean all
 
 .PHONY:	all clean fclean re

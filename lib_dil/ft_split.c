@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:52:27 by mvautrot          #+#    #+#             */
-/*   Updated: 2022/12/30 10:44:27 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/02 12:12:04 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 static int	count_string(char  *s, char c)
 {
@@ -69,7 +69,7 @@ char	**ft_split(char  *s, char c)
 
 	if(!s)
 		return(NULL);
-	
+
 	n = 0;
 	strings = malloc((count_string (s, c) + 1) * sizeof (char *));
 	if (!strings)
@@ -93,20 +93,3 @@ char	**ft_split(char  *s, char c)
 	strings[n] = NULL;
 	return (strings);
 }
-
-
-int main(void)
-{
-	char ** splt;
-	char chaine[]="ceci est *une*chaine a *separee";
-	int i = 0;
-	splt = ft_split(chaine,'*');
-	while (splt[i])
-	{
-		if (splt[i])
-			printf("%s\n",splt[i]);
-		i++;
-	}
-	return 0;
-}	
-	
