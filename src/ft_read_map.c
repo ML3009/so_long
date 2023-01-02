@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:54:23 by ml                #+#    #+#             */
-/*   Updated: 2023/01/02 15:44:25 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/02 17:37:07 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,11 @@ void    ft_put_map(t_vars var)
         }
         i++;
     }
+}
+
+int ft_close_map(t_vars var)
+{
+    mlx_destroy_window(var->mlx, var->win)
+    ft_free_tab(var->map);
+    exit(1);
 }

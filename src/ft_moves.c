@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 16:38:28 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/02 17:27:24 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/02 17:37:45 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	ft_move_up(t_vars var, int x, int y)
 		return(1);
 	}
 	if (var->map[x][y - 1] == 'E' && var->/*le max de collectible alors il faut fermer*/)
+		ft_close_map();
 		return (0);
 }
 
