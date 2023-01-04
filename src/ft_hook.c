@@ -6,12 +6,17 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:30:09 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/04 08:49:22 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/04 10:03:41 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/so_long.h"
 
+int	ft_mouse_hook(t_vars *var)
+{
+	ft_close_map(var);
+	return(0);
+}
 int	ft_key_hook(int keycode, t_vars *var)
 {
 	static int count_key;

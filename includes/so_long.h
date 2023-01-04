@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 09:13:08 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/04 09:30:25 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/04 10:26:42 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 
 typedef struct s_utils
  {
-    int player;
-    int collectible;
-    int exit;
+   int player;
+   int collectible;
+   int exit;
  } t_utils;
 
 typedef struct s_vars
@@ -38,10 +38,6 @@ typedef struct s_vars
 
 typedef struct s_data {
 	void	*img;
-	/*char	*addr;
-   int   bits_per_pixel;
-   int   line_length;
-   int   endian;*/
 }	t_data;
 
 //CHECK MAP
@@ -71,8 +67,7 @@ int   ft_line(char *str);
 int   ft_column(char *str);
 void  ft_free_tab(char **tab);
 void  ft_close_map(t_vars *var);
-//int   ft_count_max_collectible(t_vars *var);
-int   ft_max_collect(char **str);
+int   ft_all_collectible(char **str);
 
 //MOVES PLAYER
 
@@ -88,6 +83,7 @@ int   ft_move_left(t_vars *var);
 
 //KEY HOOK
 
-int ft_key_hook(int keycode, t_vars *var);
+int   ft_key_hook(int keycode, t_vars *var);
+int   ft_mouse_hook(t_vars *var);
 
 #endif
