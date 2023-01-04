@@ -81,9 +81,10 @@ int ft_check_occurence (char **str)
 {
 	int i;
 	int j;
-	t_map map;
+	t_utils map;
 
 	ft_map_init(&map);
+
 	i = 0;
 	while (str[i])
 	{
@@ -109,25 +110,25 @@ int ft_check_map (char **str, char *map)
 {
 	if (ft_check_size(str) == 0)
 	{
-		ft_putstr_fd("ERROR\nWrong map size\n", 2);
+		ft_putstr_fd("Error\nWrong map size\n", 2);
 		ft_free_tab(str);
 		return(0);
 	}
 	if (ft_check_wall(str, map) == 0)
 	{
-		ft_putstr_fd("ERROR\nWrong wall placement\n", 2);
+		ft_putstr_fd("Error\nWrong wall placement\n", 2);
 		ft_free_tab(str);
 		return(0);
 	}
 	if (ft_check_parsing(str) == 0)
 	{
-		ft_putstr_fd("ERROR\nUnknow character\n", 2);
+		ft_putstr_fd("Error\nUnknow character\n", 2);
 		ft_free_tab(str);
 		return(0);
 	}
 	if (ft_check_occurence(str) == 0)
 	{
-		ft_putstr_fd("ERROR\nProblem with CEP\n", 2);
+		ft_putstr_fd("Error\nProblem with CEP\n", 2);
 		ft_free_tab(str);
 		return(0);
 	}

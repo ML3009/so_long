@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 09:13:08 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/02 12:03:04 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/04 09:30:25 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 
 # include "../mlx_linux/mlx.h"
 # include "../lib_dil/libft.h"
+# include <X11/X.h>
+# include <X11/keysym.h>
 
-typedef struct s_map
+typedef struct s_utils
  {
     int player;
     int collectible;
     int exit;
- } t_map;
+ } t_utils;
 
 typedef struct s_vars
 {
@@ -29,14 +31,17 @@ typedef struct s_vars
    void  *win;
    char  **map;
    int   moves;
+   int   moves_count;
+   int   collec_count;
+   int   max_collec;
 }  t_vars;
 
 typedef struct s_data {
 	void	*img;
-	char	*addr;
+	/*char	*addr;
    int   bits_per_pixel;
    int   line_length;
-   int   endian;
+   int   endian;*/
 }	t_data;
 
 //CHECK MAP
@@ -50,7 +55,7 @@ int   ft_check_map(char **str, char *map);
 
 //INITIALIZE READ AND PUT MAP
 
-void   ft_map_init(t_map *map);
+void   ft_map_init(t_utils *map);
 char  **ft_read_map(char *str);
 void  ft_put_map(t_vars var);
 void  ft_put_player(t_vars, int x, int y);
@@ -65,5 +70,24 @@ void  ft_put_exit(t_vars var, int x, int y);
 int   ft_line(char *str);
 int   ft_column(char *str);
 void  ft_free_tab(char **tab);
+void  ft_close_map(t_vars *var);
+//int   ft_count_max_collectible(t_vars *var);
+int   ft_max_collect(char **str);
+
+//MOVES PLAYER
+
+void  ft_index_player(int *y, int *x, char **str);
+void  ft_up(t_vars *var, int y, int x);
+void  ft_down(t_vars *var, int y, int x);
+void  ft_right(t_vars *var, int y, int x);
+void  ft_left(t_vars *var, int y, int x);
+int   ft_move_up(t_vars *var);
+int   ft_move_down(t_vars *var);
+int   ft_move_right(t_vars *var);
+int   ft_move_left(t_vars *var);
+
+//KEY HOOK
+
+int ft_key_hook(int keycode, t_vars *var);
 
 #endif

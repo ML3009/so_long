@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:41:25 by ml                #+#    #+#             */
-/*   Updated: 2023/01/02 16:06:13 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/04 08:42:37 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void    ft_put_player(t_vars var, int x, int y)
         ft_free_tab(var.map);
          exit(1);
      }
-     mlx_put_image_to_window(var.mlx, var.win, img.img, x * 96, y * 96);
+     mlx_put_image_to_window(var.mlx, var.win, img.img, x * 60, y * 60);
 }
 
 void ft_put_collectible(t_vars var, int x, int y)
@@ -40,7 +40,7 @@ void ft_put_collectible(t_vars var, int x, int y)
          ft_free_tab(var.map);
          exit(1);
      }
-     mlx_put_image_to_window(var.mlx, var.win, img.img, x * 96, y * 96);
+     mlx_put_image_to_window(var.mlx, var.win, img.img, x * 60, y * 60);
  }
 
 void    ft_put_background(t_vars var, int x, int y)
@@ -55,7 +55,7 @@ void    ft_put_background(t_vars var, int x, int y)
         ft_free_tab(var.map);
         exit(1);
     }
-    mlx_put_image_to_window(var.mlx, var.win, img.img, x * 96, y * 96);
+    mlx_put_image_to_window(var.mlx, var.win, img.img, x * 60, y * 60);
 }
 
  void    ft_put_wall(t_vars var, int x, int y)
@@ -70,7 +70,7 @@ void    ft_put_background(t_vars var, int x, int y)
          ft_free_tab(var.map);
          exit(1);
      }
-     mlx_put_image_to_window(var.mlx, var.win, img.img, x * 96, y * 96);
+     mlx_put_image_to_window(var.mlx, var.win, img.img, x * 60, y * 60);
 }
 
 void    ft_put_exit(t_vars var, int x, int y)
@@ -85,5 +85,5 @@ void    ft_put_exit(t_vars var, int x, int y)
          ft_free_tab(var.map);
          exit(1);
     }
-     mlx_put_image_to_window(var.mlx, var.win, img.img, x * 96, y * 96);
+     mlx_put_image_to_window(var.mlx, var.win, img.img, x * 60, y * 60);
 }

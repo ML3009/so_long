@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:31:29 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/02 17:31:32 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/03 16:33:27 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ int ft_check_ber(char *fd)
     return (1);
 }
 
-void    ft_map_init(t_map *map)
+void    ft_map_init(t_utils *map)
 {
+
     map->player = 0;
     map->collectible = 0;
     map->exit = 0;
@@ -78,17 +79,4 @@ int ft_column (char *str)
     free(line);
     close(fd);
     return(i);
-}
-
-void    ft_free_tab(char **tab)
-{
-    int i;
-
-    i = 0;
-    while (tab[i])
-    {
-        free(tab[i]);
-        i++;
-    }
-    free(tab);
 }

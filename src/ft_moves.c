@@ -6,81 +6,151 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 16:38:28 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/02 17:37:45 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/04 09:18:54 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/so_long.h"
 
-int	ft_move_up(t_vars var, int x, int y)
+int	ft_move_up(t_vars *var)
 {
-	ft_index_player(&x, &y, var->map);
-	if (var->map[x][y - 1] != '1' && var->map[x][y - 1] != 'C' && var->map[x][y - 1] != 'E')
-		ft_up(var, x, y);
-	if (var->map [x][y - 1] == 'C')
+	int	y;
+	int	x;
+	t_utils *map;
+
+	map = NULL;
+
+	ft_index_player(&y, &x, var->map);
+	if (var->map[y - 1][x] != '1' && var->map[y - 1][x] != 'C' && var->map[y - 1][x] != 'E')
+		ft_up(var, y, x);
+	if (var->map [y - 1][x] == 'C')
 	{
-		var->map[x][y] = '0';
-		var->map[x][y - 1] = 'P';
+		var->map[y][x] = '0';
+		var->map[y - 1][x] = 'P';
 		var->moves_count++;
+		var->collec_count++;
 		ft_put_map((*var));
 		return(1);
 	}
-	if (var->map[x][y - 1] == 'E' && var->/*le max de collectible alors il faut fermer*/)
-		ft_close_map();
-		return (0);
+	if (var->map[y][x - 1] == 'E' && var->collec_count > 0/*map->collectible*/)
+		ft_close_map(var);
+	return (0);
 }
 
-int ft_move_down(t_vars var, int x, int y)
+int ft_move_down(t_vars *var)
 {
-	ft_index_player(&x, &y, var->map);
-	if(var->map[x][y + 1] != '1' && var->map[x][y + 1] != 'C' && var->map[x][y + 1] != 'E')
-		ft_down(var, x, y);
-	if (var->map[x][y + 1] =='C')
+	int	y;
+	int	x;
+	t_utils *map;
+
+	map = NULL;
+
+	ft_index_player(&y, &x, var->map);
+	if(var->map[y + 1][x] != '1' && var->map[y + 1][x] != 'C' && var->map[y + 1][x] != 'E')
+		ft_down(var, y, x);
+	if (var->map[y + 1][x] =='C')
 	{
-		var->map[x][y] = '0'
-		var->map[x][y + 1] = 'P';
+		var->map[y][x] = '0';
+		var->map[y + 1][x] = 'P';
 		var->moves_count++;
+		var->collec_count++;
 		ft_put_map((*var));
 		return(1);
 	}
-if (var->map[x][y + 1] == 'E' && var->/*le max de collectible alors il faut fermer*/)
-		return (0);
-	/*en gros la on sort et il faut fermer la fenetre*/
+	if (var->map[y + 1][x] == 'E' && var->collec_count > 0 /*map->collectible*/)
+		ft_close_map(var);
+	return (0);
 }
 
-int ft_move_right(t_vars var, int x, int y)
+int ft_move_right(t_vars *var)
 {
-	ft_index_player(&x, &y, var->map);
-	if(var->map[x + 1][y] != '1' && var->map[x + 1][y] != 'C' && var->map[x + 1][y] != 'E')
-		ft_right(var, x, y);
-	if(var->map[x + 1][y] == 'C')
+	int	y;
+	int	x;
+	t_utils *map;
+
+	map = NULL;
+
+	ft_index_player(&y, &x, var->map);
+	if(var->map[y][x + 1] != '1' && var->map[y][x + 1] != 'C' && var->map[y][x + 1] != 'E')
+		ft_right(var, y, x);
+	if(var->map[y][x + 1] == 'C')
 	{
-		var->map[x][y] = '0';
-		var->map[x + 1][y] = 'P';
+		var->map[y][x] = '0';
+		var->map[y][x + 1] = 'P';
 		var->moves_count++;
+		var->collec_count++;
 		ft_put_map((*var));
 		return(1);
 	}
-	if (var->map[x + 1][y] == 'E' && var->/*le max de collectible alors il faut fermer*/)
-		return (0);
-	/*en gros la on sort et il faut fermer la fenetre*/
+	if (var->map[y][x + 1] == 'E' && var->collec_count > 0 /*map->collectible*/)
+		ft_close_map(var);
+	return (0);
 }
 
-int ft_move_left(t_vars var, int x, int y)
+int ft_move_left(t_vars *var)
 {
-	ft_index_player(&x, &y, var->map);
-	if(var->map[x - 1][y] != '1' && var->map[x - 1][y] != 'C' && var->map[x - 1][y] != 'E')
-		ft_left(var, x, y);
-	if(var->map[x - 1][y] == 'C')
+	int	y;
+	int	x;
+	t_utils *map;
+
+	map = NULL;
+
+	ft_index_player(&y, &x, var->map);
+	if(var->map[y][x - 1] != '1' && var->map[y][x - 1] != 'C' && var->map[y][x - 1] != 'E')
+		ft_left(var, y, x);
+	if(var->map[y][x - 1] == 'C')
 	{
-		var->map[x][y] = '0';
-		var->map[x - 1][y] = 'P';
+		var->map[y][x] = '0';
+		var->map[y][x - 1] = 'P';
 		var->moves_count++;
+		var->collec_count++;
 		ft_put_map((*var));
 		return(1);
-	if(var->map[x - 1][y] == 'E'/*le max de collectible alors il faut fermer*/)
-		return (0);
-	/*en gros la on sort et il faut fermer la fenetre*/
 	}
-
+	if(var->map[y][x - 1] == 'E' && var->collec_count > 0 /*map->collectible*/)
+		ft_close_map(var);
+	return (0);
 }
+
+
+/*int	ft_max_collec(t_vars *var)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while(var->map[i])
+	{
+		j = 0;
+		while (var->map[i][j])
+		{
+			if(var->map[i][j] == 'C')
+				var->max_collec++;
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+int	ft_count_max_collectible(t_vars *var)
+{
+	int	i;
+	int	j;
+	int	max_collectible;
+
+	max_collectible = 0;
+	i = 0;
+	while (var->map[i])
+	{
+		j = 0;
+		while (var->map[i][j])
+		{
+			if(var->map[i][j] == 'C')
+				max_collectible++;
+			j++;
+		}
+		i++;
+	}
+	return (max_collectible);
+}*/
+

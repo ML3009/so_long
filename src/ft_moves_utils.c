@@ -6,13 +6,13 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 16:19:10 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/02 16:36:59 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/04 08:20:41 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/so_long.h"
 
-void ft_index_player(int *x, int *y, char **str)
+void ft_index_player(int *y, int *x, char **str)
 {
 	int	i;
 	int	j;
@@ -25,8 +25,8 @@ void ft_index_player(int *x, int *y, char **str)
 		{
 			if (str[i][j] == 'P')
 			{
-				(*x) = i;
-				(*y) = j;
+				(*y) = i;
+				(*x) = j;
 			}
 			j++;
 		}
@@ -34,34 +34,35 @@ void ft_index_player(int *x, int *y, char **str)
 	}
 }
 
-void ft_up(t_vars var, int x, int y)
+void ft_up(t_vars *var, int y, int x)
 {
-	var->map[x][y] == '0';
-	var->map[x][y - 1] == 'P';
+
+	var->map[y][x] = '0';
+	var->map[y - 1][x] = 'P';
 	var->moves_count++;
 	ft_put_map((*var));
 }
 
-void ft_down(t_vars, int x, int y)
+void ft_down(t_vars *var, int y, int x)
 {
-	var->map[x][y] == '0';
-	var->map[x][y + 1] == 'P';
+	var->map[y][x] = '0';
+	var->map[y + 1][x] = 'P';
 	var->moves_count++;
 	ft_put_map((*var));
 }
 
-void ft_right(t_vars var, int x, int y)
+void ft_right(t_vars *var, int y, int x)
 {
-	var->map[x][y] == '0';
-	var->map[x - 1][y] == 'P';
+	var->map[y][x] = '0';
+	var->map[y][x + 1] = 'P';
 	var->moves_count++;
 	ft_put_map((*var));
 }
 
-void ft_left(t_vars var, int x, int y)
+void ft_left(t_vars *var, int y, int x)
 {
-	var->map[x][y] == '0';
-	var->map[x + 1][y] == 'P';
+	var->map[y][x] = '0';
+	var->map[y][x - 1] = 'P';
 	var->moves_count++;
 	ft_put_map((*var));
 }

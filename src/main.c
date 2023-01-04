@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:11:13 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/02 15:40:39 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/04 08:37:35 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int main(int ac, char **av)
         ft_check_map(var.map, av[1]);
         var.win = mlx_new_window(var.mlx, (ft_line(av[1]) *64), height, "Hello");
         ft_put_map(var);
-        //mlx_hook(var.win, 17, 0L, close_all, &var);
+        //mlx_hook(var.win, 2, 1L<<0, ft_close_map, &var);
+        mlx_hook(var.win, KeyPress, KeyPressMask, ft_key_hook, &var);
         mlx_loop(var.mlx);
     }
 
