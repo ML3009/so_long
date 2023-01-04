@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 16:38:28 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/04 10:25:50 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/04 12:56:58 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_move_up(t_vars *var)
 		ft_put_map((*var));
 		return(1);
 	}
-	if (var->map[y][x - 1] == 'E' && var->collec_count == var->max_collec)
+	if (var->map[y - 1][x] == 'E' && var->collec_count == var->max_collec)
 		ft_close_map(var);
 	return (0);
 }
