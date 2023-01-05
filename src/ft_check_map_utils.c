@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:31:29 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/03 16:33:27 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/05 16:41:54 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ int ft_check_ber(char *fd)
     i = 0;
     if (!fd)
     {
-        ft_putstr_fd("ERROR\nWrong format\n", 2);
-        return (0);
+        ft_putstr_fd("Error\nWrong format\n", 2);
+        exit (1);
     }
     while (fd[i])
         i++;
     i--;
     if (fd[i] != 'r' || fd[i - 1] != 'e' || fd[i - 2] != 'b' || fd[i - 3] != '.' || ft_strlen(fd) < 4)
     {
-        ft_putstr_fd("ERROR\nWrong format\n", 2);
-        return(0);
+        ft_putstr_fd("Error\nWrong format\n", 2);
+        exit (1);
     }
     return (1);
 }
@@ -41,6 +41,12 @@ void    ft_map_init(t_utils *map)
     map->exit = 0;
 }
 
+void    ft_copy_init(t_graph *copy)
+{
+    copy->visit = NULL;
+    copy->c_max = 0;
+    copy->exit = 0;
+}
 int ft_line(char *str)
 {
     int fd;
@@ -79,4 +85,39 @@ int ft_column (char *str)
     free(line);
     close(fd);
     return(i);
+}
+
+int ft_check_map (char **str, char *map)
+{
+	if (ft_check_size(str) == 0)
+	{
+		ft_putstr_fd("Error\nWrong map size\n", 2);
+		ft_free_tab(str);
+		exit(1);
+	}
+	if (ft_check_wall(str, map) == 0)
+	{
+		ft_putstr_fd("Error\nWrong wall placement\n", 2);
+		ft_free_tab(str);
+		exit(1);
+	}
+	if (ft_check_parsing(str) == 0)
+	{
+		ft_putstr_fd("Error\nUnknow character\n", 2);
+		ft_free_tab(str);
+		exit(1);
+	}
+	if (ft_check_occurence(str) == 0)
+	{
+		ft_putstr_fd("Error\nProblem with CEP\n", 2);
+		ft_free_tab(str);
+		exit(1);
+	}
+	/*if (ft_check_way(str) == 0)
+	{
+		ft_putstr_fd("Error\nProblem with the way", 2);
+		ft_free_tab(str);
+        exit(1);
+	}*/
+	return(1);
 }
