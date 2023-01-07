@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 09:13:08 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/05 17:03:33 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:23:34 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ typedef struct s_utils
    int exit;
  } t_utils;
 
-typedef struct s_graph
+ typedef struct s_path
 {
-  char **visit;
-  int c_max;
-  int exit;
-} t_graph;
-
+	int		player_x;
+	int		player_y;
+	int		exit_x;
+	int		exit_y;
+}	t_path;
 
 typedef struct s_vars
 {
@@ -57,9 +57,9 @@ int   ft_check_wall(char **str, char *map);
 int   ft_check_parsing(char **str);
 int   ft_check_occurence (char **str);
 int   ft_check_map(char **str, char *map);
-void   **ft_copy(char **str, char *map);
-void    ft_copy_init(t_graph *copy);
-int	ft_check_all_way(char **str, t_graph *copy, int i, int j);
+//void  ft_copy(char **str, char *map, t_graph *copy);
+//void  ft_copy_init(t_graph *copy);
+//int	ft_check_all_way(char **str, t_graph *copy, int i, int j);
 //int   ft_check_way(char **str);
 //void  ft_check_all_way(t_vars *var, t_graph *copy);
 

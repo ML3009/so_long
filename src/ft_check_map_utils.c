@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:31:29 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/05 16:41:54 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/06 16:56:29 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,6 @@ void    ft_map_init(t_utils *map)
     map->exit = 0;
 }
 
-void    ft_copy_init(t_graph *copy)
-{
-    copy->visit = NULL;
-    copy->c_max = 0;
-    copy->exit = 0;
-}
 int ft_line(char *str)
 {
     int fd;
