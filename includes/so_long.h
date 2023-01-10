@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 09:13:08 by mvautrot          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/01/10 11:18:38 by mvautrot         ###   ########.fr       */
+=======
+/*   Updated: 2023/01/06 17:23:34 by ml               ###   ########.fr       */
+>>>>>>> e4f02b920e9187a13584b4e58fba9fce67c8978d
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +31,7 @@ typedef struct s_utils
 
  typedef struct s_path
 {
+<<<<<<< HEAD
 	int   player_x;
   int   player_y;
   int		exit_x;
@@ -34,6 +39,13 @@ typedef struct s_utils
 }	t_path;
 
 
+=======
+	int		player_x;
+	int		player_y;
+	int		exit_x;
+	int		exit_y;
+}	t_path;
+>>>>>>> e4f02b920e9187a13584b4e58fba9fce67c8978d
 
 typedef struct s_vars
 {
@@ -62,12 +74,20 @@ int   ft_check_wall(char **str, char *map);
 int   ft_check_parsing(char **str);
 int   ft_check_occurence (char **str);
 int   ft_check_map(char **str, char *map);
+<<<<<<< HEAD
 char   **ft_copy(char **str);
 void  ft_check_exit(char **str, t_path *p);
 void	ft_check_all_way(char **copy, t_path *p);
 void   ft_good_way(char **str, t_path *p);
 void  ft_check_path(char **str);
 void    ft_var_init(t_vars *var);
+=======
+//void  ft_copy(char **str, char *map, t_graph *copy);
+//void  ft_copy_init(t_graph *copy);
+//int	ft_check_all_way(char **str, t_graph *copy, int i, int j);
+//int   ft_check_way(char **str);
+//void  ft_check_all_way(t_vars *var, t_graph *copy);
+>>>>>>> e4f02b920e9187a13584b4e58fba9fce67c8978d
 
 
 
