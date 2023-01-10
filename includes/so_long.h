@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 09:13:08 by mvautrot          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/01/10 11:18:38 by mvautrot         ###   ########.fr       */
-=======
-/*   Updated: 2023/01/06 17:23:34 by ml               ###   ########.fr       */
->>>>>>> e4f02b920e9187a13584b4e58fba9fce67c8978d
+/*   Created: 2023/01/10 11:48:35 by mvautrot          #+#    #+#             */
+/*   Updated: 2023/01/10 14:15:35 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,34 +27,28 @@ typedef struct s_utils
 
  typedef struct s_path
 {
-<<<<<<< HEAD
 	int   player_x;
   int   player_y;
   int		exit_x;
 	int		exit_y;
+  int way;
 }	t_path;
 
 
-=======
-	int		player_x;
-	int		player_y;
-	int		exit_x;
-	int		exit_y;
-}	t_path;
->>>>>>> e4f02b920e9187a13584b4e58fba9fce67c8978d
 
 typedef struct s_vars
 {
    void  *mlx;
    void  *win;
    char  **map;
+   char  **map_copy;
    //int  line;
   // int  column;
    int   moves;
    int   moves_count;
+   int   collectable;
    int   collec_count;
    int   max_collec;
-   t_utils test;
 }  t_vars;
 
 typedef struct s_data
@@ -74,20 +64,16 @@ int   ft_check_wall(char **str, char *map);
 int   ft_check_parsing(char **str);
 int   ft_check_occurence (char **str);
 int   ft_check_map(char **str, char *map);
-<<<<<<< HEAD
 char   **ft_copy(char **str);
 void  ft_check_exit(char **str, t_path *p);
-void	ft_check_all_way(char **copy, t_path *p);
-void   ft_good_way(char **str, t_path *p);
-void  ft_check_path(char **str);
+void  ft_check_player(char **str, t_path *p);
+//void	ft_check_all_way(char **copy, t_path *p);
+int  ft_good_path(char **copy, t_path *p, t_vars *var);
+void  ft_check_path(char **copy, t_path *p, t_vars *var);
 void    ft_var_init(t_vars *var);
-=======
-//void  ft_copy(char **str, char *map, t_graph *copy);
-//void  ft_copy_init(t_graph *copy);
-//int	ft_check_all_way(char **str, t_graph *copy, int i, int j);
-//int   ft_check_way(char **str);
-//void  ft_check_all_way(t_vars *var, t_graph *copy);
->>>>>>> e4f02b920e9187a13584b4e58fba9fce67c8978d
+void	ft_check_all_way(char **copy, int i, int j, t_vars *var);
+
+
 
 
 
@@ -128,4 +114,7 @@ int   ft_move_left(t_vars *var);
 int   ft_key_hook(int keycode, t_vars *var);
 int   ft_mouse_hook(t_vars *var);
 
+
+/* test */
+void printmap(char **map_copy);
 #endif
