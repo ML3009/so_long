@@ -6,11 +6,11 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:54:23 by ml                #+#    #+#             */
-/*   Updated: 2023/01/04 15:42:16 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/10 11:33:50 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/so_long.h"
+# include "../../includes/so_long.h"
 
 
 char    **ft_read_map(char *str)
@@ -41,7 +41,6 @@ char    **ft_read_map(char *str)
 
 }
 
-
 void    ft_put_map(t_vars var)
 {
     int i;
@@ -69,22 +68,4 @@ void    ft_put_map(t_vars var)
     }
 }
 
-void ft_close_map(t_vars *var)
-{
-    mlx_destroy_window(var->mlx, var->win);
-    ft_free_tab(var->map);
-    exit(1);
-}
 
-void    ft_free_tab(char **tab)
-{
-    int i;
-
-    i = 0;
-    while (tab[i])
-    {
-        free(tab[i]);
-        i++;
-    }
-    free(tab);
-}

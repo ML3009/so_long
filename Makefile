@@ -6,7 +6,7 @@
 #    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 11:09:50 by mvautrot          #+#    #+#              #
-#    Updated: 2023/01/03 16:49:24 by mvautrot         ###   ########.fr        #
+#    Updated: 2023/01/10 10:52:33 by mvautrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,16 @@ CC=cc
 CFLAGS= -Wall -Wextra -Werror -g3
 
 PATH_SRC = src
-SRC= $(PATH_SRC)/ft_check_map.c\
-	$(PATH_SRC)/ft_check_map_utils.c\
-	$(PATH_SRC)/ft_read_map.c\
-	$(PATH_SRC)/ft_read_map_utils.c\
-	$(PATH_SRC)/ft_moves_utils.c\
-	$(PATH_SRC)/ft_moves.c\
-	$(PATH_SRC)/ft_hook.c\
-	$(PATH_SRC)/main.c
+SRC=  $(PATH_SRC)/map/ft_check_map_00.c\
+	$(PATH_SRC)/map/ft_check_map_01.c\
+	$(PATH_SRC)/map/ft_read_map.c\
+	$(PATH_SRC)/map/ft_valid_path.c\
+	$(PATH_SRC)/game/ft_hook.c\
+	$(PATH_SRC)/game/ft_moves.c\
+	$(PATH_SRC)/utils/ft_map_utils.c\
+	$(PATH_SRC)/utils/ft_moves_utils.c\
+	$(PATH_SRC)/utils/ft_read_map_utils.c\
+	$(PATH_SRC)/main.c\
 
 PATH_MLX = mlx_linux
 MLX = $(PATH_MLX)/libmlx_Linux.a -I $(PATH_MLX) -L $(PATH_MLX) -lXext -lX11 -lm -lmlx

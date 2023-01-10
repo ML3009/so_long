@@ -6,11 +6,11 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:41:25 by ml                #+#    #+#             */
-/*   Updated: 2023/01/04 12:04:45 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/10 10:48:09 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/so_long.h"
+# include "../../includes/so_long.h"
 
 void    ft_put_player(t_vars var, int x, int y)
 {
