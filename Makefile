@@ -6,7 +6,7 @@
 #    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 11:09:50 by mvautrot          #+#    #+#              #
-#    Updated: 2023/01/11 08:22:40 by mvautrot         ###   ########.fr        #
+#    Updated: 2023/01/11 14:03:52 by mvautrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRC=  $(PATH_SRC)/map/ft_check_map_00.c\
 	$(PATH_SRC)/utils/ft_map_utils.c\
 	$(PATH_SRC)/utils/ft_moves_utils.c\
 	$(PATH_SRC)/utils/ft_read_map_utils.c\
+	$(PATH_SRC)/utils/ft_gestion.c\
 	$(PATH_SRC)/main.c\
 
 PATH_MLX = mlx_linux

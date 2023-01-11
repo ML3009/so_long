@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:48:35 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/11 11:16:15 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/11 14:17:10 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,14 @@ typedef struct s_utils
   int way;
 }	t_path;
 
-
+typedef struct s_data
+{
+	void	*img_player;
+  void  *img_collectible;
+  void  *img_exit;
+  void  *img_wall;
+  void  *img_background;
+}	t_data;
 
 typedef struct s_vars
 {
@@ -42,19 +49,17 @@ typedef struct s_vars
    void  *win;
    char  **map;
    char  **map_copy;
-   //int  line;
-  // int  column;
+   int  line;
+   int  column;
    int   moves;
    int   moves_count;
    int   collectable;
    int   collec_count;
    int   max_collec;
+   t_data img;
 }  t_vars;
 
-typedef struct s_data
-{
-	void	*img;
-}	t_data;
+
 
 //CHECK MAP
 
@@ -67,7 +72,6 @@ int   ft_check_map(char **str, char *map);
 char   **ft_copy(char **str);
 void  ft_check_exit(char **str, t_path *p);
 void  ft_check_player(char **str, t_path *p);
-//void	ft_check_all_way(char **copy, t_path *p);
 int  ft_good_path(char **copy, t_path *p, t_vars *var);
 void  ft_check_path(char **copy, t_path *p, t_vars *var);
 void    ft_var_init(t_vars *var);
@@ -96,6 +100,7 @@ int   ft_column(char *str);
 void  ft_free_tab(char **tab);
 void  ft_close_map(t_vars *var);
 int   ft_all_collectible(char **str);
+void   ft_all_destroy(t_vars *var);
 
 //MOVES PLAYER
 
