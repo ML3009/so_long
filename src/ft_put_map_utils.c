@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_put_map_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:41:25 by ml                #+#    #+#             */
-/*   Updated: 2023/01/11 14:58:32 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/11 20:01:35 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void    ft_put_player(t_vars *var, int x, int y)
      int width;
      int height;
 
-
+    width = 0;
+    height = 0;
      img.img_player = mlx_xpm_file_to_image(var->mlx, "./sprites/player.xpm", &width, &height);
      if(!img.img_player)
      {
@@ -34,6 +35,9 @@ void ft_put_collectible(t_vars *var, int x, int y)
      int width;
      int height;
 
+     width = 0;
+     height = 0;
+     
      img.img_collectible = mlx_xpm_file_to_image(var->mlx, "./sprites/collectible.xpm", &width, &height);
      if (!img.img_collectible)
      {
@@ -49,6 +53,9 @@ void    ft_put_background(t_vars *var, int x, int y)
     int width;
     int height;
 
+     width = 0;
+     height = 0;
+   
     img.img_background = mlx_xpm_file_to_image(var->mlx, "sprites/background.xpm", &width, &height);
     if(!img.img_background)
     {
@@ -64,6 +71,9 @@ void    ft_put_background(t_vars *var, int x, int y)
      int width;
      int height;
 
+     width = 1;
+     height = 1;
+
      img.img_wall = mlx_xpm_file_to_image(var->mlx, "./sprites/wall.xpm", &width, &height);
      if(!img.img_wall)
      {
@@ -78,6 +88,9 @@ void    ft_put_exit(t_vars *var, int x, int y)
      t_data  img;
      int width;
      int height;
+
+     width = 0;
+     height = 0;
 
      img.img_exit = mlx_xpm_file_to_image(var->mlx, "./sprites/exit.xpm", &width, &height);
      if(!img.img_exit)
