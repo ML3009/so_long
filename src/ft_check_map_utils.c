@@ -3,49 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:31:29 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/11 15:03:54 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/11 19:03:23 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/so_long.h"
 
-int ft_check_size (char **str)
+int ft_check_size (t_vars *var)
 {
 	int len;
 	int i;
 
 	i = 0;
-	len = ft_strlen (str[0]);
-	while (str[i])
+	len = ft_strlen (var->map[0]);
+	while (var->map[i])
 	{
-		if (len != ft_strlen(str[i]))
+		if (len != ft_strlen(var->map[i]))
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-int ft_check_wall (char **str, char *map)
+int ft_check_wall (t_vars *var, char *str)
 {
 	int i;
 	int j;
 	int i_max;
 	int j_max;
 
-	i_max = ft_line(map) - 1;
-	j_max = ft_column(map) - 1;
+	i_max = ft_line(str) - 1;
+	j_max = ft_column(str) - 1;
 	i = 0;
-	while (str[i])
+	while (var->map[i])
 	{
 		j = 0;
-		while (j < ft_strlen(str[i]) - 1)
+		while (j < ft_strlen(var->map[i]) - 1)
 		{
-			if (str[0][j] != '1' || str[i_max][j] != '1')
+			if (var->map[0][j] != '1' || var->map[i_max][j] != '1')
 				return (0);
-			else if (str[i][j_max]!= '1' || str[i][0] != '1')
+			else if (var->map[i][j_max]!= '1' || var->map[i][0] != '1')
 				return (0);
 			j++;
 		}
@@ -54,21 +54,21 @@ int ft_check_wall (char **str, char *map)
 	return (1);
 }
 
-int	ft_check_parsing(char **str)
+int	ft_check_parsing(t_vars *var)
 {
 	int i;
 	int j;
 	int size;
 
-	size = ft_strlen(str[0]);
+	size = ft_strlen(var->map[0]);
 	i = 0;
-	while (str[i])
+	while (var->map[i])
 	{
 		j = 0;
 		while (j < size - 1)
 		{
-			if (str[i][j] != '1' && str[i][j] != '0' && str[i][j] != 'C'
-				&& str[i][j] != 'E' && str[i][j] != 'P')
+			if (var->map[i][j] != '1' && var->map[i][j] != '0' && var->map[i][j] != 'C'
+				&& var->map[i][j] != 'E' && var->map[i][j] != 'P')
 				return (0);
 			j++;
 		}
@@ -77,7 +77,7 @@ int	ft_check_parsing(char **str)
 	return (1);
 }
 
-int ft_check_occurence (char **str, t_utils *map)
+int ft_check_occurence (t_vars *var)
 {
 	int i;
 	int j;
@@ -86,22 +86,22 @@ int ft_check_occurence (char **str, t_utils *map)
 	//ft_map_init(&map);
 
 	i = 0;
-	while (str[i])
+	while (var->map[i])
 	{
 		j = 0;
-		while (str[i][j])
+		while (var->map[i][j])
 		{
-			if (str[i][j] == 'P')
-				map.player++;
-			if (str[i][j] == 'E')
-				map.exit++;
-			if (str[i][j] == 'C')
-				map.collectible++;
+			if (var->map[i][j] == 'P')
+				var->player++;
+			if (var->map[i][j] == 'E')
+				var->exit++;
+			if (var->map[i][j] == 'C')
+				var->collectible++;
 			j++;
 		}
 		i++;
 	}
-	if (map.player !=1 || map.exit != 1 || map.collectible == 0)
+	if (var->player !=1 || var->exit != 1 || var->collectible == 0)
 		return(0);
 	return (1);
 }

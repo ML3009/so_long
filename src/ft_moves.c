@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_moves.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:49:05 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/11 15:02:43 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/11 19:49:14 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,22 @@ void ft_index_player(int *y, int *x, char **str)
 	}
 }
 
+
 int	ft_move_up(t_vars *var)
 {
 	int	y;
 	int	x;
 
-
 	ft_index_player(&y, &x, var->map);
-	if (var->map[y - 1][x] == 'E' && var->collec_count == var->max_collec)
+	if (var->map[y - 1][x] == 'E' && var->collec_count == var->collectible)
 		ft_close_map(var);
-	if (var->map[y - 1][x] != '1' && var->map[y - 1][x] != 'C' && var->map[y - 1][x] != 'E')
-		ft_up(var, y, x);
-	if (var->map [y - 1][x] == 'C')
+	if (var->map[y - 1][x] != '1' && var->map[y - 1][x] != 'E')
 	{
+		if (var->map[y - 1][x] == 'C')
+			var->collec_count++;
 		var->map[y][x] = '0';
 		var->map[y - 1][x] = 'P';
 		var->moves_count++;
-		var->collec_count++;
 		ft_printf("Total movement: %d\n",var->moves_count);
 		ft_put_map(var);
 		return(1);
@@ -64,16 +63,15 @@ int ft_move_down(t_vars *var)
 	int	x;
 
 	ft_index_player(&y, &x, var->map);
-	if (var->map[y + 1][x] == 'E' && var->collec_count == var->max_collec)
+	if (var->map[y + 1][x] == 'E' && var->collec_count == var->collectible)
 		ft_close_map(var);
-	if(var->map[y + 1][x] != '1' && var->map[y + 1][x] != 'C' && var->map[y + 1][x] != 'E')
-		ft_down(var, y, x);
-	if (var->map[y + 1][x] =='C')
+	if(var->map[y + 1][x] != '1' && var->map[y + 1][x] != 'E')
 	{
+		if (var->map[y + 1][x] == 'C')
+			var->collec_count++;
 		var->map[y][x] = '0';
 		var->map[y + 1][x] = 'P';
 		var->moves_count++;
-		var->collec_count++;
 		ft_printf("Total movement: %d\n",var->moves_count);
 		ft_put_map(var);
 		return(1);
@@ -87,16 +85,16 @@ int ft_move_right(t_vars *var)
 	int	x;
 
 	ft_index_player(&y, &x, var->map);
-	if (var->map[y][x + 1] == 'E' && var->collec_count == var->max_collec)
+	if (var->map[y][x + 1] == 'E' && var->collec_count == var->collectible)
 		ft_close_map(var);
-	if(var->map[y][x + 1] != '1' && var->map[y][x + 1] != 'C' && var->map[y][x + 1] != 'E')
-		ft_right(var, y, x);
-	if(var->map[y][x + 1] == 'C')
+	if(var->map[y][x + 1] != '1' && var->map[y][x + 1] != 'E')
 	{
+		if (var->map[y][x + 1] == 'C')
+			var->collec_count++;
 		var->map[y][x] = '0';
 		var->map[y][x + 1] = 'P';
 		var->moves_count++;
-		var->collec_count++;
+		
 		ft_printf("Total movement: %d\n",var->moves_count);
 		ft_put_map(var);
 		return(1);
@@ -108,20 +106,18 @@ int ft_move_left(t_vars *var)
 {
 	int	y;
 	int	x;
-
-
+	
 	ft_index_player(&y, &x, var->map);
 
-	if(var->map[y][x - 1] == 'E' && var->collec_count == var->max_collec)
+	if(var->map[y][x - 1] == 'E' && var->collec_count == var->collectible)
 		ft_close_map(var);
-	if(var->map[y][x - 1] != '1' && var->map[y][x - 1] != 'C' && var->map[y][x - 1] != 'E')
-		ft_left(var, y, x);
-	if(var->map[y][x - 1] == 'C')
+	if(var->map[y][x - 1] != '1' && var->map[y][x - 1] != 'E')
 	{
+		if (var->map[y][x - 1] == 'C')
+			var->collec_count++;
 		var->map[y][x] = '0';
 		var->map[y][x - 1] = 'P';
 		var->moves_count++;
-		var->collec_count++;
 		ft_printf("Total movement: %d\n",var->moves_count);
 		ft_put_map(var);
 		return(1);

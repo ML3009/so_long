@@ -12,7 +12,7 @@
 
 # include "../includes/so_long.h"
 
-int ft_check_map (t_vars *var char *map)
+int ft_check_map (t_vars *var, char *str)
 {
 	if (ft_check_size(var) == 0)
 	{
@@ -20,7 +20,7 @@ int ft_check_map (t_vars *var char *map)
 		ft_free_tab(var->map);
 		exit(1);
 	}
-	if (ft_check_wall(var, map) == 0)
+	if (ft_check_wall(var, str) == 0)
 	{
 		ft_putstr_fd("Error\nWrong wall placement\n", 2);
 		ft_free_tab(var->map);
