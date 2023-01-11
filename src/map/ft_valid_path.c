@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:57:00 by ml                #+#    #+#             */
-/*   Updated: 2023/01/10 14:26:44 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/11 08:24:41 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,31 +35,6 @@ void	ft_check_exit(char **str, t_path *p)
 	}
 }
 
-
-void	ft_check_player(char **str, t_path *p)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while(str[i])
-	{
-		j = 0;
-		while(str[i][j])
-		{
-			if (str[i][j] == 'P')
-			{
-				p->player_x = j;
-				p->player_y = i;
-				return;
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
-
 void	ft_check_all_way(char **copy,  int i, int j, t_vars *var)
 {
 	if (copy[i][j] == 'C')
@@ -86,10 +61,8 @@ int	ft_good_path(char **copy, t_path *p, t_vars *var)
 
 void	ft_check_path(char **map_copy, t_path *p, t_vars *var)
 {
-
 	int i;
 	int	j;
-	//printmap(map_copy);
 	ft_index_player(&i, &j, map_copy);
 	ft_check_exit(map_copy, p);
 	ft_check_all_way(map_copy, i, j, var);
@@ -99,21 +72,4 @@ void	ft_check_path(char **map_copy, t_path *p, t_vars *var)
 		ft_free_tab(map_copy);
 		exit(1);
 	}
-}
-
-void printmap(char **map_copy)
-{
-	int i = 0;
-	int j = 0;
-	while (map_copy[i])
-	{
-		while (map_copy[i][j])
-		{
-			ft_printf("%c",map_copy[i][j]);
-			j++;
-		}
-		j = 0;
-		i++;
-	}
-	printf("\n\n");
 }

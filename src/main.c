@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:11:13 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/10 14:18:13 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/11 08:25:03 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ int main(int ac, char **av)
         var.max_collec = ft_all_collectible(var.map);
         ft_check_path(var.map_copy, &p, &var);
         ft_check_map(var.map, av[1]);
-        ft_printf("collect : %d ",var.max_collec);
-        ft_printf("collect : %d ",var.collec_count);
         var.win = mlx_new_window(var.mlx, (ft_line(av[1]) *64), height, "Hello");
         ft_put_map(var);
         mlx_hook(var.win, KeyPress, KeyPressMask, ft_key_hook, &var);

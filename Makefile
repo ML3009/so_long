@@ -6,7 +6,7 @@
 #    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 11:09:50 by mvautrot          #+#    #+#              #
-#    Updated: 2023/01/10 10:52:33 by mvautrot         ###   ########.fr        #
+#    Updated: 2023/01/11 08:22:40 by mvautrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ $(NAME) : $(OBJ) $(MLX) $(LIB)
 
 # %.o : %.c
 .c.o:
-	$(CC) $(CFLAGS) -I /usr/include -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(MLX):
 	make -C $(PATH_MLX)

@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:49:05 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/10 14:24:37 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/11 08:23:35 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	ft_move_up(t_vars *var)
 		var->map[y - 1][x] = 'P';
 		var->moves_count++;
 		var->collec_count++;
-		//ft_printf("collect : %d \n",var->collec_count);
 		ft_put_map((*var));
 		return(1);
 	}
@@ -76,7 +75,6 @@ int ft_move_down(t_vars *var)
 		var->map[y + 1][x] = 'P';
 		var->moves_count++;
 		var->collec_count++;
-		//ft_printf("collect : %d\n",var->collec_count);
 		ft_put_map((*var));
 		return(1);
 	}
@@ -99,7 +97,6 @@ int ft_move_right(t_vars *var)
 		var->map[y][x + 1] = 'P';
 		var->moves_count++;
 		var->collec_count++;
-		//ft_printf("collect : %d\n",var->collec_count);
 		ft_put_map((*var));
 		return(1);
 	}
@@ -124,7 +121,7 @@ int ft_move_left(t_vars *var)
 		var->map[y][x - 1] = 'P';
 		var->moves_count++;
 		var->collec_count++;
-		//ft_printf("collect : %d\n",var->collec_count);
+		ft_printf("Total movement: %d\n",var->moves_count);
 		ft_put_map((*var));
 		return(1);
 	}
