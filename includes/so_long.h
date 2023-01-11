@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:48:35 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/10 14:15:35 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/11 11:16:15 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,12 @@ void	ft_check_all_way(char **copy, int i, int j, t_vars *var);
 
 void   ft_map_init(t_utils *map);
 char  **ft_read_map(char *str);
-void  ft_put_map(t_vars var);
-void  ft_put_player(t_vars, int x, int y);
-void  ft_put_collectible(t_vars, int x, int y);
-void  ft_put_background(t_vars var, int x, int y);
-void  ft_put_wall(t_vars var, int x, int y);
-void  ft_put_exit(t_vars var, int x, int y);
+void  ft_put_map(t_vars *var);
+void  ft_put_player(t_vars *vat, int x, int y);
+void  ft_put_collectible(t_vars *var, int x, int y);
+void  ft_put_background(t_vars *var, int x, int y);
+void  ft_put_wall(t_vars *var, int x, int y);
+void  ft_put_exit(t_vars *var, int x, int y);
 
 
 //UTILS

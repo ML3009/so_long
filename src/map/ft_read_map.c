@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:54:23 by ml                #+#    #+#             */
-/*   Updated: 2023/01/10 11:33:50 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/11 11:14:00 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,26 @@ char    **ft_read_map(char *str)
 
 }
 
-void    ft_put_map(t_vars var)
+void    ft_put_map(t_vars *var)
 {
     int i;
     int j;
 
     i = 0;
-    while(var.map[i])
+    while(var->map[i])
     {
         j = 0;
-        while(var.map[i][j])
+        while(var->map[i][j])
         {
-            if(var.map[i][j] == 'P')
+            if(var->map[i][j] == 'P')
                  ft_put_player(var, j, i);
-            else if (var.map[i][j] == 'C')
+            else if (var->map[i][j] == 'C')
                  ft_put_collectible(var, j, i);
-            else if (var.map[i][j] == '0')
+            else if (var->map[i][j] == '0')
                  ft_put_background(var, j, i);
-            else if (var.map[i][j] == '1')
+            else if (var->map[i][j] == '1')
                  ft_put_wall(var, j, i);
-            else if (var.map[i][j] == 'E')
+            else if (var->map[i][j] == 'E')
                  ft_put_exit(var, j, i);
             j++;
         }

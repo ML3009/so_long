@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 16:19:10 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/11 08:19:19 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/11 11:17:01 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void ft_up(t_vars *var, int y, int x)
 	var->map[y - 1][x] = 'P';
 	var->moves_count++;
 	ft_printf("Total movement: %d\n",var->moves_count);
-	ft_put_map((*var));
+	ft_put_map(var);
 }
 
 void ft_down(t_vars *var, int y, int x)
@@ -28,7 +28,7 @@ void ft_down(t_vars *var, int y, int x)
 	var->map[y + 1][x] = 'P';
 	var->moves_count++;
 	ft_printf("Total movement: %d\n",var->moves_count);
-	ft_put_map((*var));
+	ft_put_map(var);
 }
 
 void ft_right(t_vars *var, int y, int x)
@@ -37,7 +37,7 @@ void ft_right(t_vars *var, int y, int x)
 	var->map[y][x + 1] = 'P';
 	var->moves_count++;
 	ft_printf("Total movement: %d\n",var->moves_count);
-	ft_put_map((*var));
+	ft_put_map(var);
 }
 
 void ft_left(t_vars *var, int y, int x)
@@ -46,6 +46,6 @@ void ft_left(t_vars *var, int y, int x)
 	var->map[y][x - 1] = 'P';
 	var->moves_count++;
 	ft_printf("Total movement: %d\n",var->moves_count);
-	ft_put_map((*var));
+	ft_put_map(var);
 }
 
