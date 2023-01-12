@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:02:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/12 11:14:13 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/12 13:56:29 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void    mlx_initialisation(t_vars *var)
 
 void    ft_var_init(t_vars *var)
 {
-
     var->line = 0;
     var->column = 0;
     var->height = 32;

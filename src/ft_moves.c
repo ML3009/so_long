@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_moves.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:49:05 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/11 19:49:14 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/12 14:02:19 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void ft_index_player(int *y, int *x, char **str)
 		i++;
 	}
 }
-
 
 int	ft_move_up(t_vars *var)
 {
@@ -94,7 +93,7 @@ int ft_move_right(t_vars *var)
 		var->map[y][x] = '0';
 		var->map[y][x + 1] = 'P';
 		var->moves_count++;
-		
+
 		ft_printf("Total movement: %d\n",var->moves_count);
 		ft_put_map(var);
 		return(1);
@@ -106,7 +105,7 @@ int ft_move_left(t_vars *var)
 {
 	int	y;
 	int	x;
-	
+
 	ft_index_player(&y, &x, var->map);
 
 	if(var->map[y][x - 1] == 'E' && var->collec_count == var->collectible)

@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:41:25 by ml                #+#    #+#             */
-/*   Updated: 2023/01/12 10:54:19 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/12 15:10:05 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void    ft_put_image(t_vars *var, t_data *img)
     img->img_wall = mlx_xpm_file_to_image(var->mlx, "./sprites/wall.xpm", &var->width, &var->height);
     img->img_exit = mlx_xpm_file_to_image(var->mlx, "./sprites/exit.xpm", &var->width, &var->height);
 }
+// si pas possible alors free et tout arreter
 
 void    ft_put_map(t_vars *var)
 {
@@ -49,4 +50,5 @@ void    ft_put_map(t_vars *var)
         y++;
     }
 }
+// si pas les bonnes images free et arreter
 
