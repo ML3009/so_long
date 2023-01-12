@@ -6,12 +6,11 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:02:48 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/11 15:02:32 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/12 10:40:46 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/so_long.h"
-
 
 void ft_close_map(t_vars *var)
 {

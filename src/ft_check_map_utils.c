@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:31:29 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/11 19:03:23 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/12 08:13:11 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,6 @@ int ft_check_occurence (t_vars *var)
 {
 	int i;
 	int j;
-	//t_utils map;
-
-	//ft_map_init(&map);
 
 	i = 0;
 	while (var->map[i])

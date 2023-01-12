@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ml <ml@student.42.fr>                      +#+  +:+       +#+         #
+#    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 11:09:50 by mvautrot          #+#    #+#              #
-#    Updated: 2023/01/11 19:43:47 by ml               ###   ########.fr        #
+#    Updated: 2023/01/12 10:30:36 by mvautrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,13 +24,10 @@ SRC=  $(PATH_SRC)/ft_check_map_utils.c\
 	$(PATH_SRC)/ft_gestion_init.c\
 	$(PATH_SRC)/ft_hook.c\
 	$(PATH_SRC)/ft_moves.c\
-	$(PATH_SRC)/ft_put_map_utils.c\
 	$(PATH_SRC)/ft_put_map.c\
 	$(PATH_SRC)/ft_read_map_utils.c\
 	$(PATH_SRC)/ft_read_map.c\
 	$(PATH_SRC)/main.c\
-
-#	$(PATH_SRC)/ft_moves_utils.c\
 
 PATH_MLX = mlx_linux
 MLX = $(PATH_MLX)/libmlx_Linux.a -I $(PATH_MLX) -L $(PATH_MLX) -lXext -lX11 -lm -lmlx

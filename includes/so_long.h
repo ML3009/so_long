@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:48:35 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/11 19:49:42 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/12 10:55:12 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct s_vars
    char  **map_copy;
    int   line;
    int   column;
+   int   width;
+   int   height;
    int   player;
    int   exit;
    int   collectible;
@@ -71,18 +73,12 @@ void	ft_check_all_way(char **copy, int i, int j, t_vars *var);
 
 
 
-
-
 //INITIALIZE READ AND PUT MAP
 
 char  **ft_read_map(char *str);
+void  ft_put_image(t_vars *var, t_data *img);
 void  ft_put_map(t_vars *var);
-void  ft_put_player(t_vars *vat, int x, int y);
-void  ft_put_collectible(t_vars *var, int x, int y);
-void  ft_put_background(t_vars *var, int x, int y);
-void  ft_put_wall(t_vars *var, int x, int y);
-void  ft_put_exit(t_vars *var, int x, int y);
-
+void    mlx_initialisation(t_vars *var);
 
 //UTILS
 
@@ -91,7 +87,7 @@ int   ft_column(char *str);
 void  ft_free_tab(char **tab);
 void  ft_close_map(t_vars *var);
 int   ft_all_collectible(char **str);
-void   ft_all_destroy(t_vars *var);
+void  ft_all_destroy(t_vars *var);
 
 //MOVES PLAYER
 

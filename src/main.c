@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:11:13 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/11 19:08:15 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/12 10:50:02 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ int main(int ac, char **av)
         var.column = ft_column(av[1]);
         ft_check_map(&var, av[1]);
         ft_check_path(var.map_copy, &p, &var);
-        var.mlx = mlx_init();
-        var.win = mlx_new_window(var.mlx, var.column * 32, var.line * 32, "Hello");
+        mlx_initialisation(&var);
         ft_put_map(&var);
         mlx_hook(var.win, KeyPress, KeyPressMask, ft_key_hook, &var);
         mlx_hook(var.win, ClientMessage, LeaveWindowMask, ft_mouse_hook, &var);
@@ -40,5 +39,4 @@ int main(int ac, char **av)
         ft_all_destroy(&var);
         return(0);
     }
-
 }
