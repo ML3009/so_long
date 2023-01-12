@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:02:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/12 10:49:37 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/12 11:14:13 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,16 @@ void    mlx_initialisation(t_vars *var)
 {
     var->mlx = mlx_init();
     if(var->mlx == NULL)
+    {
+        ft_free_tab(var->map);
+        ft_putstr_fd("Error\nWrong initialisation\n", 2);
         exit(1);
-        //msg erreur
+    }
     var->win = mlx_new_window(var->mlx, var->column * 32, var->line * 32, "MiLlEdUnE");
     if (var->win == NULL)
     {
-        free(var->win);
+        free(var->map);
+        ft_putstr_fd("Error\nWrong initialisation\n", 2);
         exit(1);
     }
 }

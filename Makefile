@@ -6,13 +6,13 @@
 #    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 11:09:50 by mvautrot          #+#    #+#              #
-#    Updated: 2023/01/12 10:30:36 by mvautrot         ###   ########.fr        #
+#    Updated: 2023/01/12 13:36:24 by mvautrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=so_long
 
-CC=cc
+CC=@cc
 
 CFLAGS= -Wall -Wextra -Werror -g3
 
@@ -30,27 +30,27 @@ SRC=  $(PATH_SRC)/ft_check_map_utils.c\
 	$(PATH_SRC)/main.c\
 
 PATH_MLX = mlx_linux
-MLX = $(PATH_MLX)/libmlx_Linux.a -I $(PATH_MLX) -L $(PATH_MLX) -lXext -lX11 -lm -lmlx
+MLX = $(PATH_MLX)/libmlx_Linux.a -L $(PATH_MLX) -lXext -lX11 -lm -lmlx
 
 PATH_LIB = lib_dil
 LIB = $(PATH_LIB)/libft.a
 
 OBJ=$(SRC:.c=.o)
 
-all: $(NAME)
+all: $(MLX) $(LIB) $(NAME)
 
-$(NAME) : $(OBJ) $(MLX) $(LIB)
+$(NAME) : $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(MLX) $(LIB)
-
+	@echo "\nCompilation OK\n"
 # %.o : %.c
 .c.o:
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS)  -c $< -o $@ -I $(PATH_MLX)
 
 $(MLX):
-	make -C $(PATH_MLX)
+	@make -s -C $(PATH_MLX)
 
 $(LIB):
-	make -C $(PATH_LIB)
+	@make -s -C $(PATH_LIB)
 
 clean:
 	make -C $(PATH_MLX) clean
