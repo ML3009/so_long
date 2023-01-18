@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:11:13 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/12 10:50:02 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/17 16:20:56 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int main(int ac, char **av)
         mlx_hook(var.win, KeyPress, KeyPressMask, ft_key_hook, &var);
         mlx_hook(var.win, ClientMessage, LeaveWindowMask, ft_mouse_hook, &var);
         mlx_loop(var.mlx);
-        ft_all_destroy(&var);
         return(0);
     }
 }

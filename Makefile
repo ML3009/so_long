@@ -6,7 +6,7 @@
 #    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 11:09:50 by mvautrot          #+#    #+#              #
-#    Updated: 2023/01/12 13:36:24 by mvautrot         ###   ########.fr        #
+#    Updated: 2023/01/16 12:06:51 by mvautrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRC=  $(PATH_SRC)/ft_check_map_utils.c\
 	$(PATH_SRC)/ft_put_map.c\
 	$(PATH_SRC)/ft_read_map_utils.c\
 	$(PATH_SRC)/ft_read_map.c\
-	$(PATH_SRC)/main.c\
+#	$(PATH_SRC)/main.c\
 
 PATH_MLX = mlx_linux
 MLX = $(PATH_MLX)/libmlx_Linux.a -L $(PATH_MLX) -lXext -lX11 -lm -lmlx
@@ -40,7 +40,7 @@ OBJ=$(SRC:.c=.o)
 all: $(MLX) $(LIB) $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(MLX) $(LIB)
+	$(CC) $(CFLAGS) src/main.c -o $(NAME) $(OBJ) $(MLX) $(LIB)
 	@echo "\nCompilation OK\n"
 # %.o : %.c
 .c.o:

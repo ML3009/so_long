@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_path.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 16:57:00 by ml                #+#    #+#             */
-/*   Updated: 2023/01/11 19:29:06 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/17 14:12:31 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,20 @@ int	ft_good_path(char **copy, t_path *p, t_vars *var)
 	if ((copy[p->exit_y + 1][p->exit_x] == 'P' || copy[p->exit_y - 1][p->exit_x] == 'P'
 		|| copy[p->exit_y][p->exit_x + 1] == 'P' || copy[p->exit_y][p->exit_x - 1] == 'P')
 		&& (var->collectable == var->collectible))
-		return(1);
+		{
+			ft_free_tab(copy);
+			return(1);
+
+		}
 	return(0);
-	
+
 }
 
 void	ft_check_path(char **map_copy, t_path *p, t_vars *var)
 {
 	int i;
 	int	j;
-	
+
 	ft_index_player(&i, &j, map_copy);
 	ft_check_exit(map_copy, p);
 	ft_check_all_way(map_copy, i, j, var);
