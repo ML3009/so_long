@@ -6,13 +6,13 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:42:01 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/02 12:11:03 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/18 14:51:12 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char  *s1, char  *set)
+char	*ft_strtrim(char *s1, char *set)
 {
 	char	*tab;
 	size_t	lens1;

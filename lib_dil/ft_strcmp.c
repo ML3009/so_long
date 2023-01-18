@@ -6,13 +6,13 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 10:39:57 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/02 12:11:03 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/18 14:52:09 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp( char *s1,  char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	size_t	i;
 

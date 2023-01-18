@@ -6,12 +6,11 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 11:10:04 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/02 12:11:03 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/18 14:52:30 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 char	*get_next_line(int fd)
 {

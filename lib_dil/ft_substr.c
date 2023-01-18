@@ -6,16 +6,16 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:28:59 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/02 12:11:03 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/18 14:53:14 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_slt(char  *s, int len)
+static char	*ft_slt(char *s, int len)
 {
-	char			*dst;
-	int	i;
+	char	*dst;
+	int		i;
 
 	i = 0;
 	dst = (char *) malloc ((len + 1));
@@ -30,7 +30,7 @@ static char	*ft_slt(char  *s, int len)
 	return (dst);
 }
 
-char	*ft_substr(char  *s, int start, int len)
+char	*ft_substr(char *s, int start, int len)
 {
 	char			*dst;
 

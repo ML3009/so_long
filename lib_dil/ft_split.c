@@ -6,13 +6,13 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:52:27 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/02 12:12:04 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/18 14:58:45 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_string(char  *s, char c)
+static int	count_string(char *s, char c)
 {
 	int	i;
 	int	j;
@@ -32,7 +32,7 @@ static int	count_string(char  *s, char c)
 	return (i);
 }
 
-static char	*len_string(char  *s, char c)
+static char	*len_string(char *s, char c)
 {
 	int		len;
 	char	*sa;
@@ -62,13 +62,10 @@ static void	ft_free(char **strings, int i)
 	free (strings);
 }
 
-char	**ft_split(char  *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**strings;
 	int		n;
-
-	if(!s)
-		return(NULL);
 
 	n = 0;
 	strings = malloc((count_string (s, c) + 1) * sizeof (char *));
@@ -80,8 +77,7 @@ char	**ft_split(char  *s, char c)
 			s++;
 		if (!(*s))
 			break ;
-		strings[n] = len_string(s, c);
-		n++;
+		strings[n++] = len_string(s, c);
 		if (!strings[n - 1])
 		{
 			ft_free(strings, n);
