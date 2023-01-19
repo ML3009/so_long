@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_gestion_init.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:02:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/18 17:27:32 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/19 16:27:38 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	mlx_initialisation(t_vars *var)
 {
-	if ((var->column * 42) >= 1920 || (var->line * 42) >= 1080)
+	if ((var->column * 32) >= 1920 || (var->line * 32) >= 1080)
 	{
 		ft_free_tab(var->map);
 		ft_putstr_fd("Error\nWrong size\n", 2);

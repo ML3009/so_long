@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_moves_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:49:05 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/18 16:00:02 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/19 16:28:51 by ml               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_move_up(t_vars *var)
 		k = (y - 1);
 		mlx_put_image_to_window(var->mlx, var->win, var->img_p, x * 32, k * 32);
 		var->moves_count++;
-		ft_printf("Total movement: %d\n", var->moves_count);
+		ft_put_string(var);
 		return (1);
 	}
 	return (0);
@@ -78,7 +78,7 @@ int	ft_move_down(t_vars *var)
 		k = (y + 1);
 		mlx_put_image_to_window(var->mlx, var->win, var->img_p, x * 32, k * 32);
 		var->moves_count++;
-		ft_printf("Total movement: %d\n", var->moves_count);
+		ft_put_string(var);
 		return (1);
 	}
 	return (0);
@@ -103,7 +103,7 @@ int	ft_move_right(t_vars *var)
 		k = (x + 1);
 		mlx_put_image_to_window(var->mlx, var->win, var->img_p, k * 32, y * 32);
 		var->moves_count++;
-		ft_printf("Total movement: %d\n", var->moves_count);
+		ft_put_string(var);
 		return (1);
 	}
 	return (0);
@@ -128,7 +128,7 @@ int	ft_move_left(t_vars *var)
 		k = (x - 1);
 		mlx_put_image_to_window(var->mlx, var->win, var->img_p, k * 32, y * 32);
 		var->moves_count++;
-		ft_printf("Total movement: %d\n", var->moves_count);
+		ft_put_string(var);
 		return (1);
 	}
 	return (0);

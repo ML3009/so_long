@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
+#    By: ml <ml@student.42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 11:09:50 by mvautrot          #+#    #+#              #
-#    Updated: 2023/01/18 15:39:54 by mvautrot         ###   ########.fr        #
+#    Updated: 2023/01/19 09:50:26 by ml               ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRC_BONUS = $(PATH_SRC_BONUS)/ft_check_map_utils_bonus.c\
 			$(PATH_SRC_BONUS)/ft_put_map_bonus.c\
 			$(PATH_SRC_BONUS)/ft_read_map_utils_bonus.c\
 			$(PATH_SRC_BONUS)/ft_read_map_bonus.c\
+			$(PATH_SRC_BONUS)/ft_string_window.c\
 
 PATH_MLX = mlx_linux
 MLX = $(PATH_MLX)/libmlx_Linux.a -L $(PATH_MLX) -lXext -lX11 -lm -lmlx
