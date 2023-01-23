@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_gestion_init_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:02:06 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/19 16:28:15 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/23 15:25:25 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 void	mlx_initialisation(t_vars *var)
 {
-	if (var->column * 32 >= 1920 || var->line * 32 >= 1080)
-	{
-		ft_free_tab(var->map);
-		ft_putstr_fd("Error\nWrong size\n", 2);
-		exit(1);
-	}
 	var->mlx = mlx_init();
 	if (var->mlx == NULL)
 	{
@@ -29,7 +23,7 @@ void	mlx_initialisation(t_vars *var)
 		exit(1);
 	}
 	var->win = mlx_new_window(var->mlx, var->column * 32, \
-		var->line * 40, "SO_LONG");
+		var->line * 32 + 40, "SO_LONG");
 	if (var->win == NULL)
 	{
 		ft_free_tab(var->map);

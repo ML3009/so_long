@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ml <ml@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 11:48:35 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/19 16:26:45 by ml               ###   ########.fr       */
+/*   Updated: 2023/01/23 13:39:55 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,6 @@ int		ft_key_hook(int keycode, t_vars *var);
 int		ft_mouse_hook(t_vars *var);
 
 //BONUS
-void	ft_put_string(t_vars *var);
 
+void	ft_put_string(t_vars *var);
 #endif
