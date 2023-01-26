@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ml <ml@student.42.fr>                      +#+  +:+       +#+         #
+#    By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 11:09:50 by mvautrot          #+#    #+#              #
-#    Updated: 2023/01/19 09:50:26 by ml               ###   ########.fr        #
+#    Updated: 2023/01/25 12:22:38 by mvautrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ NAME_BONUS=so_long_bonus
 CC=@cc
 
 CFLAGS= -Wall -Wextra -Werror -g3
+
+MFLAGS = -L -lft -lXext -lX11 -lm -lbsd
 
 PATH_SRC = src
 PATH_SRC_BONUS = src_bonus
@@ -30,6 +32,7 @@ SRC= $(PATH_SRC)/ft_check_map_utils.c\
 	 $(PATH_SRC)/ft_put_map.c\
 	 $(PATH_SRC)/ft_read_map_utils.c\
 	 $(PATH_SRC)/ft_read_map.c\
+	 $(PATH_SRC)/main.c\
 
 SRC_BONUS = $(PATH_SRC_BONUS)/ft_check_map_utils_bonus.c\
 			$(PATH_SRC_BONUS)/ft_check_map_bonus.c\
@@ -42,9 +45,12 @@ SRC_BONUS = $(PATH_SRC_BONUS)/ft_check_map_utils_bonus.c\
 			$(PATH_SRC_BONUS)/ft_read_map_utils_bonus.c\
 			$(PATH_SRC_BONUS)/ft_read_map_bonus.c\
 			$(PATH_SRC_BONUS)/ft_string_window.c\
+			$(PATH_SRC_BONUS)/main_bonus.c\
 
 PATH_MLX = mlx_linux
-MLX = $(PATH_MLX)/libmlx_Linux.a -L $(PATH_MLX) -lXext -lX11 -lm -lmlx
+
+LIBX = -L mlx_linux -lmlx_Linux
+LIBXFLAGS = -lmlx -lXext -lX11
 
 PATH_LIB = lib_dil
 LIB = $(PATH_LIB)/libft.a
@@ -53,26 +59,24 @@ OBJ = $(SRC:.c=.o)
 
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
-all: $(MLX) $(LIB) $(NAME) $(NAME_BONUS)
+all:  $(NAME) $(NAME_BONUS)
 
-bonus: $(MLX) $(LIB) $(NAME_BONUS)
+bonus:  $(NAME_BONUS)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) src/main.c -o $(NAME) $(OBJ) $(MLX) $(LIB)
+	@make -s -C $(PATH_MLX)
+	@make -s -C $(PATH_LIB)
+	$(CC) $(CFLAGS) $(OBJ) $(LIB) $(LIBX) $(LIBXFLAGS) -o $(NAME) -g
 	@echo "\nCompilation OK\n"
 
 $(NAME_BONUS) : $(OBJ_BONUS)
-	$(CC) $(CFLAGS) src_bonus/main_bonus.c -o $(NAME_BONUS) $(OBJ_BONUS) $(MLX) $(LIB)
+	@make -s -C $(PATH_MLX)
+	@make -s -C $(PATH_LIB)
+	$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIB) $(LIBX) $(LIBXFLAGS) -o $(NAME_BONUS) -g
 	@echo "\nCompilation Bonus OK\n"
 
 .c.o:
-	$(CC) $(CFLAGS)  -c $< -o $@ -I $(PATH_MLX)
-
-$(MLX):
-	@make -s -C $(PATH_MLX)
-
-$(LIB):
-	@make -s -C $(PATH_LIB)
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(PATH_MLX)
 
 clean:
 	make -C $(PATH_MLX) clean

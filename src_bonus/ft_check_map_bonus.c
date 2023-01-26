@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_map.c                                     :+:      :+:    :+:   */
+/*   ft_check_map_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:12:33 by mvautrot          #+#    #+#             */
-/*   Updated: 2023/01/18 12:20:12 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:55:03 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_check_map2(t_vars *var)
 	}
 	if (ft_check_occurence(var) == 0)
 	{
-		ft_putstr_fd("Error\nProblem with CEP\n", 2);
+		ft_putstr_fd("Error\nProblem with occurence\n", 2);
 		ft_free_tab(var->map);
 		ft_free_tab(var->map_copy);
 		exit (1);

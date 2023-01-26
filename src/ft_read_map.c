@@ -6,7 +6,7 @@
 /*   By: mvautrot <mvautrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 09:54:23 by ml                #+#    #+#             */
-/*   Updated: 2023/01/18 10:36:14 by mvautrot         ###   ########.fr       */
+/*   Updated: 2023/01/23 18:07:40 by mvautrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_check_ber(char *fd)
 	i = 0;
 	if (!fd)
 	{
-		ft_putstr_fd("Error\nWrong format\n", 2);
+		ft_putstr_fd("Error\nFile not found\n", 2);
 		exit (1);
 	}
 	while (fd[i])
@@ -28,7 +28,7 @@ int	ft_check_ber(char *fd)
 	if (fd[i] != 'r' || fd[i - 1] != 'e' || fd[i - 2] != 'b'
 		|| fd[i - 3] != '.' || ft_strlen(fd) < 4)
 	{
-		ft_putstr_fd("Error\nWrong format\n", 2);
+		ft_putstr_fd("Error\nWrong format. We are waiting for ber\n", 2);
 		exit (1);
 	}
 	return (1);
@@ -40,20 +40,22 @@ char	**ft_read_map(char *str)
 	char	*ret;
 	int		i;
 	int		fd;
-	int		size;
 
-	size = ft_line(str);
 	i = 0;
 	fd = open(str, O_RDONLY);
-	map = malloc(sizeof(char *) * (size + 1));
+	if (fd < 0)
+	{
+		ft_putstr_fd("Error\nUnknow map name\n", 2);
+		exit(1);
+	}
+	map = malloc(sizeof(char *) * (ft_line(str) + 1));
 	if (!map)
 		return (NULL);
 	ret = get_next_line(fd);
 	while (ret)
 	{
-		map[i] = ret;
+		map[i++] = ret;
 		ret = get_next_line(fd);
-		i++;
 	}
 	map[i] = NULL;
 	free (ret);
